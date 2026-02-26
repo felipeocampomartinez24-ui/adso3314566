@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Guía de Emmet</title>
+    <link rel="stylesheet" href="../../assets/css/emmet.css">
+
+</head>
+
+<body>
+    <a href="../../" class="btn-home"></a>
+    <a href="/" class="btn-home" title="Inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+            <path
+                d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68Z">
+            </path>
+        </svg>
+    </a>
+
+    <div class="container">
+        <header>
+
+            <img src="../../assets/img/emmet.svg" alt="Logo Emmet" class="logo-emmet">
+            <h1>Manual Rápido de Emmet</h1>
+            <p>Aprende a escribir HTML a la velocidad de la luz.</p>
+        </header>
+        <section>
+            <h2>Emmet - Elementos Hermanos</h2>
+            <h2>Ejemplo:</h2>
+            <p>section+header+nav</p>
+            <xmp>
+                <section></section>
+                <header></header>
+                <nav></nav>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Repetir Elementos</h2>
+            <h2>Ejemplo:</h2>
+            <p>ul>li*3</p>
+            <xmp>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Atributo Clase</h2>
+            <h2>Ejemplo:</h2>
+            <p>div.contenedor</p>
+            <xmp>
+                <div class="contenedor"></div>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Múltiples Clases</h2>
+            <h2>Ejemplo:</h2>
+            <p>div.clase1.clase2.clasen</p>
+            <xmp>
+                <div class="clase1 clase2 clasen"></div>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Atributo Identificador</h2>
+            <h2>Ejemplo:</h2>
+            <p>nav#menu</p>
+            <xmp>
+                <nav id="menu"></nav>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Adicionar Texto</h2>
+            <h2>Ejemplo:</h2>
+            <p>a{Click Aquí}</p>
+            <xmp>
+                <a href="">Click Aquí</a>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Personalizar Atributos</h2>
+            <h2>Ejemplo:</h2>
+            <p>a[href=www.google.com]</p>
+            <xmp>
+                <a href="www.google.com"></a>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Números Consecutivos</h2>
+            <h2>Ejemplo:</h2>
+            <p>ul>li.num$*3</p>
+            <xmp>
+                <ul>
+                    <li class="num1"></li>
+                    <li class="num2"></li>
+                    <li class="num3"></li>
+                </ul>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Dirección Números Consecutivos</h2>
+            <h2>Ejemplo:</h2>
+            <p>ul>li.num$@-*3</p>
+            <xmp>
+                <ul>
+                    <li class="num3"></li>
+                    <li class="num2"></li>
+                    <li class="num1"></li>
+                </ul>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Base Números Consecutivos</h2>
+            <h2>Ejemplo:</h2>
+            <p>ul>li.num$@3*4</p>
+            <xmp>
+                <ul>
+                    <li class="num3"></li>
+                    <li class="num4"></li>
+                    <li class="num5"></li>
+                    <li class="num6"></li>
+                </ul>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Subir Nivel</h2>
+            <h2>Ejemplo:</h2>
+            <p>section>article>div^p</p>
+            <xmp>
+                <section>
+                    <article>
+                        <div></div>
+                    </article>
+                    <p></p>
+                </section>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Agrupar Elementos</h2>
+            <h2>Ejemplo:</h2>
+            <p>(header>nav)(section>article)</p>
+            <xmp>
+                <header>
+                    <nav></nav>
+                </header>
+                <section>
+                    <article></article>
+                </section>
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Generar Lorem Ipsum</h2>
+            <h2>Ejemplo:</h2>
+            <p>lorem20</p>
+            <xmp>
+                lorem)
+            </xmp>
+        </section>
+
+        <section>
+            <h2>Emmet - Documentos HTML</h2>
+            <h2>Ejemplo:</h2>
+            <p>html:5</p>
+            <xmp>
+
+
+
+                <section>
+                    <header id="header">
+                        <nav class="navbar navbar-inverse">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle"><span class="sr-only">Toggle
+                                            navigation</span><span class="icon-bar"></span><span
+                                            class="icon-bar"></span><span class="icon-bar"></span></button><a
+                                        href="index.php" class="navbar-brand"><img src="imgs/logo.png" alt=""></a>
+                                    <div class="collapse">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="index.html" class="link">Inicio</a></li>
+                                            <li class="active link"><a href="login.html">Ingresar</a></li>
+                                            <li><a href="registro.html" class="link">Registrarse</a></li>
+                                            <li><a href="contacto.html" class="link">Contacto</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </header>
+
+
+
+
+
+
+
+                </section>
+
+                <body>
+            </xmp>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
