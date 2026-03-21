@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Text JavaScript</title>
+    <link rel="stylesheet" href="../src/css/script.css">
+</head>
+
+<body>
+    <main>
+        <!-- Botón de inicio -->
+        <a href="../../index.html" class="btn-home" title="Inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68Z"></path>
+            </svg>
+        </a>
+
+        <div class="container">
+            <!-- Header con logo y título -->
+            <header>
+                <img src="./../src/imgs/01tex.png" alt="Logo JavaScript" class="logo-emmet">
+                <h1>JavaScript</h1>
+                <p>Interacción con el usuario</p>
+            </header>
+
+            <!-- Sección principal con el script -->
+            <section class="user-section">
+                <h2>Saludo Personalizado</h2>
+                
+                <!-- Elemento donde se mostrará el saludo -->
+                <div class="user-message">
+                    <span class="user">Cargando...</span>
+                </div>
+
+                <script>
+                    // Script para saludo personalizado
+                    const userElement = document.querySelector('.user');
+                    const answer = prompt("¿Cuál es tu nombre?");
+                    
+                    if (answer && answer.trim() !== '') {
+                        userElement.textContent = '👋 Bienvenido/a: ' + answer.trim();
+                    } else {
+                        userElement.textContent = '👋 Bienvenido/a: Invitado 😐';
+                    }
+                </script>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
