@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculo ADSO - Enlace Externo</title>
+    
+    <link rel="stylesheet" href="/src/css/emmet.css">
+</head>
+<body>
+      <a href="../02_index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z">
+            </path>
+        </svg>
+    </a>
+    <main>
+        <h1>links</h1>
+    </main>
+    <style>
+        /* Estilos básicos para el cuerpo de la página */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a1535; /* Gris muy claro de fondo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía limpia */
+}
+
+/* Contenedor para centrar el círculo en la pantalla */
+.contenedor-principal {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    height: 100vh;           /* Usa todo el alto de la ventana */
+}
+
+/* Estilos para el círculo ADSO */
+.circulo-adso {
+    /* 1. Dimensiones (deben ser iguales para un círculo perfecto) */
+    width: 200px;
+    height: 200px;
+
+    /* 2. La clave para el círculo: border-radius al 50% */
+    border-radius: 50%;
+
+    /* 3. Colores y apariencia */
+    background-color: #9ba397; /* Verde SENA */
+    color: white;             /* Texto blanco */
+    border: 5px solid #a9afa5; /* Borde verde más oscuro */
+    
+    /* 4. Estilos de texto */
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase; /* Forzar mayúsculas */
+    letter-spacing: 2px;       /* Espaciado entre letras */
+    
+    /* 5. Centrar el texto 'ADSO' DENTRO del círculo */
+    display: flex;
+    justify-content: center; /* Centrado horizontal del texto */
+    align-items: center;     /* Centrado vertical del texto */
+    
+    /* 6. Efecto de sombra para dar profundidad */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+    /* 7. Opcional: una pequeña transición por si quieres añadir efectos luego */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto visual al pasar el mouse por encima */
+.circulo-adso:hover {
+    transform: scale(1.1); /* Agranda el círculo un 10% */
+    cursor: pointer;
+}
+    </style>
+    <div class="contenedor-principal">
+        
+        <div class="circulo-adso">
+            ADSO
+        </div>
+
+    </div>
+
+</body>
+</html>
