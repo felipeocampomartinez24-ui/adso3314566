@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-graphics</title>
+    <link rel="stylesheet" href="/src/css/emmet.css">
+</head>
+
+<body>
+    <a href="../02_index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z">
+            </path>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <h1>12-Graphics</h1>
+            <h2>Creates inline graphics with tags. Crea gráficos en línea con etiquetas.</h2>
+        </header>
+        
+        <section>
+            
+            
+            <h3>Canvas (gráfico rasterizado)</h3>
+            <div> 
+                <canvas id="myCanvas" width="200" height="200" style="border:1px solid orange;">
+                    Tu navegador no soporta canvas.
+                </canvas>
+            </div>
+            
+            <h3>SVG (gráfico vectorial)</h3>
+            <div>
+                <svg width="200" height="200" style="border:1px solid orange;">
+                    <circle cx="100" cy="100" r="50" fill="orange" stroke="#333" stroke-width="2" />
+                </svg>
+            </div>
+            
+            <div>
+                <script>
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    
+                    // Dibujar un círculo en canvas
+                    ctx.beginPath();
+                    ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+                    ctx.fillStyle = "blue";
+                    ctx.fill();
+                    ctx.strokeStyle = "#333";
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                </script>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
