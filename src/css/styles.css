@@ -1,4 +1,32 @@
 /* Configuración General - Tonos Azules */
+.btn-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.btn-home:hover {
+    background: #e0e0e0;
+}
+
+.btn-home:active {
+    background: #d0d0d0;
+}
+
+.btn-home svg {
+    width: 24px;
+    height: 24px;
+}
 body {
     background-color: #000814;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23001d3d' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23003566' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%2300509d' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%230071bc' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%2300a8e8' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");

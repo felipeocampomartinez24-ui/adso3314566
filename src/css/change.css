@@ -1,0 +1,66 @@
+/* Contenedor principal del formulario */
+.formulario-registro {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Título */
+.titulo-form {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Grupos de campos para dar orden */
+.campo-grupo {
+    margin-bottom: 15px;
+}
+
+/* Estilo para las etiquetas */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilo base para inputs y select */
+.input-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    font-size: 14px;
+}
+
+/* Variación específica para el select */
+.select-control {
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+/* Botón de envío */
+.boton-enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: #39a900; /* Verde institucional */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por el botón */
+.boton-enviar:hover {
+    background-color: #2e8600;
+}

@@ -1,0 +1,308 @@
+/* Configuración General - Deep Blue Tech */
+body {
+    background-color: #000814;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23001d3d' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23003566' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%2300509d' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%230071bc' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%2300a8e8' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    color: #ffffff;
+}
+
+/* Botón Home - Estilo neón */
+.btn-home {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #00d4ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001d3d;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+.btn-home svg {
+    fill: #00d4ff;
+}
+
+.btn-home:hover {
+    transform: scale(1.1);
+    background-color: #00d4ff;
+    box-shadow: 0 0 25px #00d4ff;
+}
+
+.btn-home:hover svg {
+    fill: #001d3d;
+}
+
+/* ============================================
+   ESTILOS SEMÁNTICOS SIMPLIFICADOS
+   ============================================ */
+
+/* MAIN - Contenedor principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(0, 29, 61, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 2px solid rgba(0, 212, 255, 0.2);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* HEADER - Encabezado principal */
+header {
+    background: linear-gradient(135deg, #001d3d, #000814);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 3px solid #00d4ff;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #00d4ff;
+    margin: 0;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+header h2 {
+    font-size: 1.2rem;
+    color: #e0f7fa;
+    margin: 0.5rem 0 0;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+/* SECTION - Secciones */
+section {
+    padding: 2rem;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* ARTICLE - Artículos (destacados en neón) */
+article {
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 4px solid #00d4ff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+article:hover {
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateX(5px);
+}
+
+article h3, article h4 {
+    color: #00d4ff;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+article p {
+    color: #b0bec5;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* FIGURE - Imágenes con marco */
+figure {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+figure img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+figcaption {
+    color: #00d4ff;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* ASIDE - Barra lateral (estilo destacado) */
+aside {
+    background: linear-gradient(135deg, #001d3d, #000814);
+    border: 1px solid #00d4ff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+aside h4 {
+    color: #00d4ff;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+aside p {
+    color: #b0bec5;
+    margin: 0;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 6px;
+}
+
+aside a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+aside a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER - Pie de página */
+footer {
+    background: #000814;
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 2px solid #00d4ff;
+    color: #b0bec5;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   ETIQUETAS SEMÁNTICAS VISIBLES (opcional)
+   ============================================ */
+
+/* Muestra el nombre de la etiqueta (útil para aprender) */
+main, header, section, article, aside, footer {
+    position: relative;
+}
+
+main::before {
+    content: "<main>";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: #00d4ff;
+    color: #000814;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+    z-index: 10;
+}
+
+header::before {
+    content: "<header>";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: #00d4ff;
+    color: #000814;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+section::before {
+    content: "<section>";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #00d4ff;
+    color: #000814;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+article::before {
+    content: "<article>";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #ff6b6b;
+    color: #000814;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+aside::before {
+    content: "<aside>";
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #ffd93d;
+    color: #000814;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+footer::before {
+    content: "<footer>";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #6c5ce7;
+    color: #ffffff;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 1rem;
+    }
+    
+    article {
+        padding: 1rem;
+    }
+}
