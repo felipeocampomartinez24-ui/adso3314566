@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Formulario Maestro HTML</title>
     <link rel="stylesheet" href="/src/css/styles.css">
-        <link rel="stylesheet" href="/src/css/emmet.css">
+    <link rel="stylesheet" href="/src/css/emmet.css">
 </head>
+
 <body style="font-family: sans-serif; background-color: #f4f4f4; padding: 20px;">
 
-       <a href="../02_index.html" class="btn-home">
+    <a href="../02_index.html" class="btn-home">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
             <path
                 d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z">
@@ -16,85 +18,94 @@
         </svg>
     </a>
     <main>
-        <header style="background: rgb(6, 2, 66) !important;">
+        <header style="
+    background: rgb(6, 2, 66) !important;
+">
             <h1>12-Graphics</h1>
             <h2>Creates inline graphics with tags. Crea gráficos en línea con etiquetas.</h2>
         </header>
-        
+
         <section>
-            
-            
 
-    <form action="/procesar-datos" method="POST" enctype="multipart/form-data" style="background: rgb(6, 2, 66) !important; max-width: 600px; margin: auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        
-        <fieldset style="border: 1px solid #150463; margin-bottom: 20px; padding: 15px;">
-            <legend style="color: #050452; font-weight: bold;">Información Básica</legend>
-            
-            <label>Nombre Completo:</label><br>
-            <input type="text" name="nombre" placeholder="Ej: felipeocampo" required style="width: 95%; margin-bottom: 10px;"><br>
 
-            <label>Contraseña:</label><br>
-            <input type="password" name="password" style="width: 95%; margin-bottom: 10px;"><br>
 
-            <label>Correo Electrónico:</label><br>
-            <input type="email" name="email" placeholder="usuario@ejemplo.com" style="width: 95%; margin-bottom: 10px;"><br>
-            
-            <label>Edad:</label><br>
-            <input type="number" name="edad" min="18" max="99" style="width: 95%;">
-        </fieldset>
+            <form action="/procesar-datos" method="POST" enctype="multipart/form-data"
+                style="background: rgb(6, 2, 66) !important; max-width: 600px; margin: auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
-        <fieldset style="border: 1px solid #333; margin-bottom: 20px; padding: 15px;">
-            <legend style="font-weight: bold;">Preferencias y Perfil</legend>
+                <fieldset style="border: 1px solid #150463; margin-bottom: 20px; padding: 15px;">
+                    <legend style="color: #050452; font-weight: bold;">Información Básica</legend>
 
-            <p>Género:</p>
-            <input type="radio" id="m" name="genero" value="masculino">
-            <label for="m">Masculino</label>
-            <input type="radio" id="f" name="genero" value="femenino">
-            <label for="f">Femenino</label><br>
+                    <label>Nombre Completo:</label><br>
+                    <input type="text" name="nombre" placeholder="Ej: felipeocampo" required
+                        style="width: 95%; margin-bottom: 10px;"><br>
 
-            <p>Intereses (Puedes marcar varios):</p>
-            <input type="checkbox" id="dev" name="interes" value="software">
-            <label for="dev">Desarrollo de Software</label><br>
-            <input type="checkbox" id="art" name="interes" value="tatuaje">
-            <label for="art">Arte y Tatuaje</label><br>
-            <input type="checkbox" id="biz" name="interes" value="negocios">
-            <label for="biz">Emprendimiento</label>
-        </fieldset>
+                    <label>Contraseña:</label><br>
+                    <input type="password" name="password" style="width: 95%; margin-bottom: 10px;"><br>
 
-        <fieldset style="border: 1px solid #333; margin-bottom: 20px; padding: 15px;">
-            <legend style="font-weight: bold;">Adicionales</legend>
+                    <label>Correo Electrónico:</label><br>
+                    <input type="email" name="email" placeholder="usuario@ejemplo.com"
+                        style="width: 95%; margin-bottom: 10px;"><br>
 
-            <label>Ciudad de Residencia:</label><br>
-            <select name="ciudad" style="width: 100%; margin-bottom: 10px;">
-                <option value="manizales">Manizales</option>
-                <option value="pereira">Pereira</option>
-                <option value="armenia">Armenia</option>
-            </select><br>
+                    <label>Edad:</label><br>
+                    <input type="number" name="edad" min="18" max="99" style="width: 95%;">
+                </fieldset>
 
-            <label>Subir Documento (PDF o Imagen):</label><br>
-            <input type="file" name="archivo" accept=".pdf, .jpg, .png" style="margin-bottom: 10px;"><br>
+                <fieldset style="border: 1px solid #333; margin-bottom: 20px; padding: 15px;">
+                    <legend style="font-weight: bold;">Preferencias y Perfil</legend>
 
-            <label>Fecha de Registro:</label><br>
-            <input type="date" name="fecha" style="width: 100%; margin-bottom: 10px;"><br>
+                    <p>Género:</p>
+                    <input type="radio" id="m" name="genero" value="masculino">
+                    <label for="m">Masculino</label>
+                    <input type="radio" id="f" name="genero" value="femenino">
+                    <label for="f">Femenino</label><br>
 
-            <label>Color Favorito (Ej: para branding):</label><br>
-            <input type="color" name="color_preferido" style="width: 50px;">
-        </fieldset>
+                    <p>Intereses (Puedes marcar varios):</p>
+                    <input type="checkbox" id="dev" name="interes" value="software">
+                    <label for="dev">Desarrollo de Software</label><br>
+                    <input type="checkbox" id="art" name="interes" value="tatuaje">
+                    <label for="art">Arte y Tatuaje</label><br>
+                    <input type="checkbox" id="biz" name="interes" value="negocios">
+                    <label for="biz">Emprendimiento</label>
+                </fieldset>
 
-        <label>Comentarios o Descripción del Proyecto:</label><br>
-        <textarea name="comentarios" rows="4" style="width: 95%; margin-bottom: 20px;" placeholder="Escribe aquí..."></textarea>
+                <fieldset style="border: 1px solid #333; margin-bottom: 20px; padding: 15px;">
+                    <legend style="font-weight: bold;">Adicionales</legend>
 
-        <div style="display: flex; gap: 10px;">
-            <button type="submit" style="flex: 2; padding: 10px; background-color: #39a900; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                Enviar Formulario
-            </button>
-            <button type="reset" style="flex: 1; padding: 10px; background-color: #666; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                Limpiar
-            </button>
-        </div>
+                    <label>Ciudad de Residencia:</label><br>
+                    <select name="ciudad" style="width: 100%; margin-bottom: 10px;">
+                        <option value="manizales">Manizales</option>
+                        <option value="pereira">Pereira</option>
+                        <option value="armenia">Armenia</option>
+                    </select><br>
 
-    </form>
+                    <label>Subir Documento (PDF o Imagen):</label><br>
+                    <input type="file" name="archivo" accept=".pdf, .jpg, .png" style="margin-bottom: 10px;"><br>
+
+                    <label>Fecha de Registro:</label><br>
+                    <input type="date" name="fecha" style="width: 100%; margin-bottom: 10px;"><br>
+
+                    <label>Color Favorito (Ej: para branding):</label><br>
+                    <input type="color" name="color_preferido" style="width: 50px;">
+                </fieldset>
+
+                <label>Comentarios o Descripción del Proyecto:</label><br>
+                <textarea name="comentarios" rows="4" style="width: 95%; margin-bottom: 20px;"
+                    placeholder="Escribe aquí..."></textarea>
+
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit"
+                        style="flex: 2; padding: 10px; background-color: #39a900; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Enviar Formulario
+                    </button>
+                    <button type="reset"
+                        style="flex: 1; padding: 10px; background-color: #666; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Limpiar
+                    </button>
+                </div>
+
+            </form>
         </section>
     </main>
 </body>
+
 </html>
