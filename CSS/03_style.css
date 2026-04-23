@@ -1,0 +1,147 @@
+/* Configuración General - Tonos Azules */
+.btn-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.btn-home:hover {
+    background: #e0e0e0;
+}
+
+.btn-home:active {
+    background: #d0d0d0;
+}
+
+.btn-home svg {
+    width: 24px;
+    height: 24px;
+}
+body {
+    background-color: #000814;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23001d3d' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23003566' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%2300509d' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%230071bc' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%2300a8e8' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: #ffffff;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+
+    h1 {
+        font-size: 3.4rem;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+        letter-spacing: 2px;
+        color: #00d4ff;
+        text-shadow: 0 0 15px rgba(116, 39, 198, 0.5);
+    }
+    
+
+    img {
+        border: 4px solid #834eb5;
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+        display: block;
+        margin: 1.5rem auto;
+        object-fit: cover;
+        box-shadow: 0 0 20px rgba(125, 69, 223, 0.3);
+    }
+
+    h4 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        color: #e0f7fa;
+    }
+
+    menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+
+        a:link,
+        a:visited {
+            background-color: #16035b;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3CradialGradient id='a' cx='500' cy='500' r='60%25' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300509d'/%3E%3Cstop offset='1' stop-color='%23001d3d'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='500' cy='500' r='70%25' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300d4ff' stop-opacity='1'/%3E%3Cstop offset='1' stop-color='%2300d4ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1000' height='1000'/%3E%3Cg fill='none' stroke='%2300d4ff' stroke-width='2' stroke-miterlimit='10' stroke-opacity='.3'%3E%3Ccircle cx='500' cy='500' r='725'/%3E%3Ccircle cx='500' cy='500' r='50'/%3E%3C/g%3E%3Crect fill-opacity='.3' fill='url(%23b)' width='1000' height='1000'/%3E %3C/svg%3E");
+            background-size: cover;
+            color: white;
+            border-radius: 5rem;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+
+            &:hover {
+                transform: scale(1.03) translateX(10px);
+                border-color: #3a1983;
+                box-shadow: 0 0 20px rgba(50, 3, 100, 0.4);
+            }
+
+            span {
+                background-color: #ffffff;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(240)'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%2300d4ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+                color: #001d3d;
+                border-radius: 50%;
+                font-size: 1.8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 60px;
+                height: 60px;
+                flex-shrink: 0;
+                margin-right: 1.5rem;
+                border: 2px solid #2c0a4e;
+                box-shadow: inset 0 0 10px rgba(53, 5, 77, 0.2);
+            }
+
+            aside {
+                display: flex;
+                flex-direction: column;
+                
+                h4 {
+                    font-size: 1.8rem;
+                    text-align: left;
+                    margin: 0;
+                    width: auto;
+                    line-height: 1;
+                    color: #ffffff;
+                }
+
+                small {
+                    display: block;
+                    font-size: 0.9rem;
+                    font-family: sans-serif;
+                    text-transform: uppercase;
+                    opacity: 0.9;
+                    color: #9e1099;
+                }
+            }
+        }
+    }
+}
