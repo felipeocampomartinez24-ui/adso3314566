@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr</title>
+
+    <link rel="stylesheet" href="../03_style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .caja-ejemplo {
+            background-color: white;
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Métodos de Inclusión de CSS</h1>
+    </header>
+
+    <main>
+        <section class="caja-ejemplo">
+            <h2> 03-attr-style </h2>
+            <p>Este bloque tiene estilos definidos en la cabecera del documento. Es cómodo pero difícil de mantener en sitios grandes.</p>
+        </section>
+
+        <section class="caja-ejemplo" style="border-color: #e74c3c; background-color: #fdf2f2;">
+            <h2 style="color: #e74c3c; text-transform: uppercase;">2. CSS en Línea</h2>
+            <p>Este bloque usa el atributo <code>style=""</code> directamente en las etiquetas HTML.</p>
+            <button style="background-color: #e74c3c; color: white; border: none; padding: 10px; cursor: pointer;">
+                Botón con estilo directo
+            </button>
+            <p><small><em>*Fíjate cómo este estilo "manda" sobre los demás debido a su alta prioridad.</em></small></p>
+        </section>
+
+        <section class="caja-ejemplo">
+            <h2>3. CSS Externo</h2>
+            <p>Para que veas los efectos de este método, tendrías que crear un archivo llamado <code>style.css</code> en la misma carpeta.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Resumen de aprendizaje sobre selectores y jerarquía.</p>
+    </footer>
+
+</body>
+</html>

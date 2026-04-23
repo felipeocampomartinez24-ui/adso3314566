@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectors basics </title>
+    <link rel="stylesheet" href="../03_style.css">
+    <style>
+        /* 1. Selector Universal: Reseteo básico y borde a TODO */
+        * {
+            margin: 10px;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* 2. Selector de Tipo / Etiqueta: Afecta a todos los h2 */
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #34495e;
+        }
+
+        /* 3. Selector Descendente: Párrafos dentro de un div */
+        div p {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* 4. Selector de Clase: Reutilizable */
+        .important {
+            background-color: #f1c40f;
+            padding: 5px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        /* 5. Selector de ID: Único y específico */
+        #cod389 {
+            background-color: #e67e22;
+            color: white;
+            padding: 15px;
+            border: 3px dashed #d35400;
+        }
+
+        /* 6. Selector Combinado (Merge): Muy específico */
+        /* Busca un p con clase .title dentro de un div con ID #user3 */
+        div#user3 p.title {
+            color: #2ecc71;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        /* Estilo extra para el contenedor */
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dominando los Selectores Básicos</h1>
+
+    <h2>Sección de Etiquetas</h2>
+    <p>Este es un párrafo normal.</p>
+
+    <div class="container">
+        <p>Soy un párrafo dentro de un DIV (estilo descendente).</p>
+    </div>
+
+    <p>Este texto es normal, pero <span class="important">esta parte es importante</span>.</p>
+    <p class="important">¡Todo este párrafo es importante!</p>
+
+    <div id="cod389">
+        ID #cod389: Este bloque es único. Los IDs tienen mucha prioridad.
+    </div>
+
+    <div id="user3" class="container">
