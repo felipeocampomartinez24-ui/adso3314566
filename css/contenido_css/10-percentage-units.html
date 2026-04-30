@@ -4,31 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10-percentage-units</title>
-    <link rel="stylesheet" href="/src/css/styles.css">
     <style>
-        main{
+        /* Estilos base para visualización */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        main {
             width: 100%;
-            section.porcentage{
-                margin:0 auto ;
-                width: 80%;
-                div.parent{
-                    display: flex;
-                    justify-content:center;
-                    font-size: 2rem;
-                    align-items: center;
-                    height:  50dvh;
-                    &.child1{
-                        background-color: brown;
-                        width: 70%;
+        }
 
-                    }
-                    &child2{
-                        background-color: aqua;
-                        width: 30%;
-                    }
-                }
+        section.percentage {
+            margin: 0 auto;
+            width: 80%;
+            border: 2px solid #ccc; /* Para visualizar el contenedor */
+        }
 
+        /* Corrección de la sintaxis de anidamiento (CSS Nesting) */
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50dvh;
+            font-size: 2rem;
+            color: white;
+            
+            /* Uso correcto del ampersand & para clases hijas */
+            & .child1 {
+                background-color: brown;
+                width: 70%;
+                height: 100%; /* Para que ocupen el alto del padre */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 
+            & .child2 {
+                background-color: aqua;
+                width: 30%;
+                height: 100%;
+                color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
     </style>
@@ -36,10 +55,17 @@
 
 <body>
     <main>
-        <header>
+        <header style="text-align: center;">
             <h1>10-percentage-units</h1>
-
         </header>
+
+        <!-- Agregamos la sección y los divs que faltaban en el cuerpo -->
+        <section class="percentage">
+            <div class="parent">
+                <div class="child1">70%</div>
+                <div class="child2">30%</div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
