@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../03_style.css">
+    <title>11-colors</title>
+    <style>
+        div.colors{
+            display:flex ;
+            flex-direction:column ;
+            margin-top: 2rem;
+            justify-content:center ;
+            align-items:center ;
+            transition: all 0.4s ease-in;
+            &:nth-of-type(2){
+                div{
+                    font-size: 0.5rem;
+                }
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                align-items:center ;
+                div{ 
+                    height: 70px;
+                    width: 70px;
+                    &:first-child, &:last-child{
+                        color: white;
+                    }
+                    &.maroon{background-color: maroon;}
+                    &.red{background-color:red ;}
+                    &.orange{background:orange ;}
+                    &.yellow{background-color:yellow ;}
+                    &.olive{background-color:olive ;}
+                    /*row2*/
+                    &.purple{background-color: purple;}
+                    &.fucshia{background-color:fuchsia ;}
+                    &.white{background-color: white;}
+                    &.lime{background-color: lime;}
+                    &.green{background-color:green ;}
+                    /*row3*/
+                    &.navy{background-color:navy ;}
+                    &.blue{background-color: blue;}
+                    &.aqua{background-color: aqua;}
+                    &.teal{background-color: teal;}
+                    /*row3*/
+                    &.black{background-color: black;}
+                    &.silver{background-color:silver ;}
+                    &.gray{background-color: gray;}
+
+
+
+                    
+                }
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1> 11-colors</h1>
+        <h2>Are specified using predefined color names, or RGB, HEX, HSL.</h2>
+
+    </header>
+    <section>
+        <h3>name colors</h3>
+        <div>
+        <div class="colors"></div>
+        <div class="maroon">rgb(128,0,0)</div>
+        <div class="red">rgb(255,0,0)</div>
+        <div class="orange"rgb(255,100,0)</div>
+        <div class="yellow">rgb(255,255,0)</div>
+        <div class="olive">rgb(128,128,0)</div>
+        </div>
+        <div>
+            <div class="purple">rgb(128,0,128)</div>
+            <div class="fushia">rgb(255,0,255)</div>
+            <div class="white">rgb(255,255,255)</div>
+            <div class="lime">rgb(0,255,100)</div>
+            <div class="green">rgb(0,255,0)</div>
+        </div>
+        <div>
+            <div class="navy">rgb(0,0,128)</div>
+            <div class="blue">rgb(0,0,255)</div>
+            <div class="aqua">rgb(0,255,255)</div>
+            <div class="teal">rgb(0,128,128)</div>
+            
+        </div>
+        <div>
+            <div class="black">rgb(0,0,0)</div>
+            <div class="silver">rgb(128,128,128)</div>
+            <div class="gray">rgb(100,100,100)</div>
+        </div>
+        
+    </section>
+    <section>
+        <h3>colors decimal</h3>
+        <div>
+        <div class="colors"></div>
+        <div class="maroon">marron</div>
+        <div class="red">red</div>
+        <div class="orange">orange</div>
+        <div class="yellow">yellow</div>
+        <div class="olive">olive</div>
+        </div>
+        <div>
+            <div class="purple">purple</div>
+            <div class="fushia">fushia</div>
+            <div class="white">white</div>
+            <div class="lime">lime</div>
+            <div class="green">green</div>
+        </div>
+        <div>
+            <div class="navy">navy</div>
+            <div class="blue">blue</div>
+            <div class="aqua">aqua</div>
+            <div class="teal">teal</div>
+            
+        </div>
+        <div>
+            <div class="black">black</div>
+            <div class="silver">silver</div>
+            <div class="gray">gray</div>
+        </div>
+        
+    </section>
+    <main>
+
+    </main>
+    
+</body>
+</html>
