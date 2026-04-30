@@ -3,106 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../03_style.css">
     <title>11-colors</title>
     <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-        }
+        div.colors{
+            display:flex ;
+            flex-direction:column ;
+            margin-top: 2rem;
+            justify-content:center ;
+            align-items:center ;
+            transition: all 0.4s ease-in;
+            &:nth-of-type(2){
+                div{
+                    font-size: 0.5rem;
+                }
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                align-items:center ;
+                div{ 
+                    height: 70px;
+                    width: 70px;
+                    &:first-child, &:last-child{
+                        color: white;
+                    }
+                    &.maroon{background-color: maroon;}
+                    &.red{background-color:red ;}
+                    &.orange{background:orange ;}
+                    &.yellow{background-color:yellow ;}
+                    &.olive{background-color:olive ;}
+                    /*row2*/
+                    &.purple{background-color: purple;}
+                    &.fucshia{background-color:fuchsia ;}
+                    &.white{background-color: white;}
+                    &.lime{background-color: lime;}
+                    &.green{background-color:green ;}
+                    /*row3*/
+                    &.navy{background-color:navy ;}
+                    &.blue{background-color: blue;}
+                    &.aqua{background-color: aqua;}
+                    &.teal{background-color: teal;}
+                    /*row3*/
+                    &.black{background-color: black;}
+                    &.silver{background-color:silver ;}
+                    &.gray{background-color: gray;}
 
-        /* Contenedor de las filas */
-        section {
-            margin-bottom: 2rem;
-        }
 
-        /* Contenedor flexible para cada grupo de colores */
-        .color-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
 
-        /* Estilo base para cada cuadro */
-        .color-box {
-            height: 80px;
-            width: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: transform 0.2s;
-            border: 1px solid #ddd;
+                    
+                }
+            }
         }
-
-        .color-box:hover {
-            transform: scale(1.1);
-        }
-
-        /* Colores de fondo */
-        .maroon { background-color: maroon; color: white; }
-        .red { background-color: red; color: white; }
-        .orange { background-color: orange; }
-        .yellow { background-color: yellow; }
-        .olive { background-color: olive; color: white; }
-        .purple { background-color: purple; color: white; }
-        .fuchsia { background-color: fuchsia; color: white; }
-        .white { background-color: white; color: black; }
-        .lime { background-color: lime; }
-        .green { background-color: green; color: white; }
-        .navy { background-color: navy; color: white; }
-        .blue { background-color: blue; color: white; }
-        .aqua { background-color: aqua; }
-        .teal { background-color: teal; color: white; }
-        .black { background-color: black; color: white; }
-        .silver { background-color: silver; }
-        .gray { background-color: gray; color: white; }
     </style>
+
 </head>
 <body>
-
     <header>
-        <h1>11-colors</h1>
-        <p>Predefined color names, RGB, HEX, and HSL.</p>
+        <h1> 11-colors</h1>
+        <h2>Are specified using predefined color names, or RGB, HEX, HSL.</h2>
+
     </header>
-
-    <!-- Ejemplo 1: RGB -->
     <section>
-        <h3>RGB Colors</h3>
-        <div class="color-row">
-            <div class="color-box maroon">rgb(128,0,0)</div>
-            <div class="color-box red">rgb(255,0,0)</div>
-            <div class="color-box orange">rgb(255,165,0)</div>
-            <div class="color-box yellow">rgb(255,255,0)</div>
-            <div class="color-box olive">rgb(128,128,0)</div>
+        <h3>name colors</h3>
+        <div>
+        <div class="colors"></div>
+        <div class="maroon">rgb(128,0,0)</div>
+        <div class="red">rgb(255,0,0)</div>
+        <div class="orange"rgb(255,100,0)</div>
+        <div class="yellow">rgb(255,255,0)</div>
+        <div class="olive">rgb(128,128,0)</div>
         </div>
-    </section>
+        <div>
+            <div class="purple">rgb(128,0,128)</div>
+            <div class="fushia">rgb(255,0,255)</div>
+            <div class="white">rgb(255,255,255)</div>
+            <div class="lime">rgb(0,255,100)</div>
+            <div class="green">rgb(0,255,0)</div>
+        </div>
+        <div>
+            <div class="navy">rgb(0,0,128)</div>
+            <div class="blue">rgb(0,0,255)</div>
+            <div class="aqua">rgb(0,255,255)</div>
+            <div class="teal">rgb(0,128,128)</div>
+            
+        </div>
+        <div>
+            <div class="black">rgb(0,0,0)</div>
+            <div class="silver">rgb(128,128,128)</div>
+            <div class="gray">rgb(100,100,100)</div>
+        </div>
 
-    <!-- Ejemplo 2: HEX -->
+        
+    </section>
     <section>
-        <h3>HEX Colors</h3>
-        <div class="color-row">
-            <div class="color-box purple">#800080</div>
-            <div class="color-box fuchsia">#FF00FF</div>
-            <div class="color-box white">#FFFFFF</div>
-            <div class="color-box lime">#00FF00</div>
-            <div class="color-box green">#008000</div>
+        <h3>colors decimal</h3>
+        <div>
+        <div class="colors"></div>
+        <div class="maroon">marron</div>
+        <div class="red">red</div>
+        <div class="orange">orange</div>
+        <div class="yellow">yellow</div>
+        <div class="olive">olive</div>
         </div>
+        <div>
+            <div class="purple">purple</div>
+            <div class="fushia">fushia</div>
+            <div class="white">white</div>
+            <div class="lime">lime</div>
+            <div class="green">green</div>
+        </div>
+        <div>
+            <div class="navy">navy</div>
+            <div class="blue">blue</div>
+            <div class="aqua">aqua</div>
+            <div class="teal">teal</div>
+            
+        </div>
+        <div>
+            <div class="black">black</div>
+            <div class="silver">silver</div>
+            <div class="gray">gray</div>
+        </div>
+        
     </section>
-
-    <!-- Ejemplo 3: HSL -->
     <section>
-        <h3>HSL Colors</h3>
-        <div class="color-row">
-            <div class="color-box navy">hsl(240, 100%, 25%)</div>
-            <div class="color-box blue">hsl(240, 100%, 50%)</div>
-            <div class="color-box aqua">hsl(180, 100%, 50%)</div>
-            <div class="color-box teal">hsl(180, 100%, 25%)</div>
-        </div>
-    </section>
 
+    <div class="column">
+        <div class="color-box maroon">#800000</div>
+        <div class="color-box red">#FF0000</div>
+        <div class="color-box orange">#FF6400</div>
+        <div class="color-box yellow">#FFFF00</div>
+        <div class="color-box olive">#808000</div>
+    </div>
+
+    <div class="column">
+        <div class="color-box purple">#800080</div>
+        <div class="color-box fuchsia">#FF00FF</div>
+        <div class="color-box white">#FFFFFF</div>
+        <div class="color-box lime">#00FF64</div>
+        <div class="color-box green">#00FF00</div>
+    </div>
+
+    <div class="column">
+        <div class="color-box navy">#000080</div>
+        <div class="color-box blue">#0000FF</div>
+        <div class="color-box aqua">#00FFFF</div>
+        <div class="color-box teal">#008080</div>
+    </div>
+
+    <div class="column">
+        <div class="color-box black">#000000</div>
+        <div class="color-box silver">#808080</div>
+        <div class="color-box gray">#646464</div>
+    </div>
+
+    </section>
+    <section>
+        <h3>hsl(saturacion,lighting,lighting)</h3>
+        <div class="column">
+        <div class="color-box maroon">hsl(0, 100%, 25%)</div>
+        <div class="color-box red">hsl(0, 100%, 50%)</div>
+        <div class="color-box orange">hsl(24, 100%, 50%)</div>
+        <div class="color-box yellow">hsl(60, 100%, 50%)</div>
+        <div class="color-box olive">hsl(60, 100%, 25%)</div>
+    </div>
+
+    <div class="column">
+        <div class="color-box purple">hsl(300, 100%, 25%)</div>
+        <div class="color-box fuchsia">hsl(300, 100%, 50%)</div>
+        <div class="color-box white">hsl(0, 0%, 100%)</div>
+        <div class="color-box lime">hsl(144, 100%, 50%)</div>
+        <div class="color-box green">hsl(120, 100%, 50%)</div>
+    </div>
+
+    <div class="column">
+        <div class="color-box navy">hsl(240, 100%, 25%)</div>
+        <div class="color-box blue">hsl(240, 100%, 50%)</div>
+        <div class="color-box aqua">hsl(180, 100%, 50%)</div>
+        <div class="color-box teal">hsl(180, 100%, 25%)</div>
+    </div>
+
+    <div class="column">
+        <div class="color-box black">hsl(0, 0%, 0%)</div>
+        <div class="color-box silver">hsl(0, 0%, 50%)</div>
+        <div class="color-box gray">hsl(0, 0%, 39%)</div>
+    </div>
+    </section>
+    <main>
+
+    </main>
+    
 </body>
 </html>
