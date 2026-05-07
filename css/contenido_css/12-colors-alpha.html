@@ -3,54 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>12 colors</title>
-</head>
-<style>
-    body{
-        background-color:saddlebrown ;
-    }
-    section.naruto{
-        all: revert;
-        background: url(../../src/imgs/naruto-png-clipart.jpg)/cover;
-        border: 4px solid #fff;
-        margin-block: 4 rem;
-        height: 300px;
-        width: 380;
-        
-    }
-    div{
-        height: calc(380px);
-        & box{
-            background-color: #c3ebe9d0;
-        }
-        & box{
-            background-color: #d6ecebd0;
-        }
-        & box{
-            background-color: #e8ececd0;
+    <style>
+        body {
+            background-color: saddlebrown;
+            color: white;
+            font-family: sans-serif;
         }
 
-    }
-</style>
+        /* Contenedor de la imagen y los cuadros */
+        .container {
+            position: relative; /* Necesario para encimar los cuadros */
+            width: 380px;
+            height: 300px;
+            border: 4px solid #fff;
+            margin: 2rem auto;
+            /* Corregimos la sintaxis del background */
+            background: url('../../src/imgs/naruto-png-clipart.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        /* Estilo base para los cuadros de colores */
+        .box {
+            height: 100px; /* Dividimos el alto para que se vean los 3 */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Colores con transparencia (RGBA/Hex Alpha) */
+        .color-1 { background-color: #c3ebe9d0; }
+        .color-2 { background-color: #d6ecebd0; }
+        .color-3 { background-color: #e8ececd0; }
+
+    </style>
+</head>
 <body>
     <main>
-    <header>
-         <a href="../../index.html" class="btn-home"></a>
-    <a href="../../index.html" class="btn-home" title="Inicio">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
-            <path
-                d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68Z">
-            </path>
-        </svg>
-    </a>
-    <h1> 12-colors </h1>
-    <h2>The fourth alpha channel allows you to apply opacity or transparency to the color.</h2>
-    </header>
-        <section>
-        <img src="../../src/imgs/naruto-png-clipart.jpg" alt="naruto">
+        <header style="text-align: center;">
+            <a href="../../index.html" class="btn-home" title="Inicio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 256 256">
+                    <path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68Z"></path>
+                </svg>
+            </a>
+            <h1>12-colors</h1>
+            <h2>The fourth alpha channel allows you to apply opacity.</h2>
+        </header>
+
+        <!-- El contenedor con la imagen de fondo y los divs adentro -->
+        <section class="container">
+            <div class="box color-1">Color 1 (d0)</div>
+            <div class="box color-2">Color 2 (d0)</div>
+            <div class="box color-3">Color 3 (d0)</div>
         </section>
     </main>
-    
 </body>
 </html>
