@@ -3,109 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>position</title>
-</head> 
-<style>
-    body {
+    <title>CSS Position Guide</title>
+    <style>
+        body {
             background-color: #656877;
-            color: #fff; /* Corregido: era color, no font-size */
-            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 20px;
+            /* Altura extra para probar el scroll con Sticky y Fixed */
+            height: 2000px; 
         }
-    .example-box {
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        /* Estilo base para todos los cajones */
+        .example-box {
             width: 300px;
-            height: 200px;
-            border: 6px solid #ffffff;
+            height: 300px;
+            border: 6px solid #ffffffe0;
             margin: 2rem auto;
-            color: white;
+            overflow: hidden;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-shadow: 1px 1px 5px black;
             font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            /* Imagen de fondo con overlay de color para que se note la transparencia */
+            background-image: linear-gradient(rgba(81, 154, 167, 0.7), rgba(81, 154, 167, 0.7)), 
+                              url('../../src/imgs/naruto-png-clipart.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
-.cajon1{
-    background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
-    position: static;width: 300px;
-            height: 300px;
-            border: 6px solid #ffffffe0;
-            margin: 2rem auto;
-            
-            overflow: hidden;
-            
-}
-.cajon2{
-    position: relative;
-    background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
-    width: 300px;
-            height: 300px;
-            border: 6px solid #ffffffe0;
-            margin: 2rem auto;
-           
-            overflow: hidden;
-            
-}
-.cajon3{
- position: absolute;
- background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
-width: 300px;
-            height: 300px;
-            border: 6px solid #ffffffe0;
-            margin: 2rem auto;
-            
-            overflow: hidden;
-            
-}
-.cajon4{
-position: fixed;
-background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
-width: 300px;
-            height: 300px;
-            border: 6px solid #ffffffe0;
-            margin: 2rem auto;
-            
-            overflow: hidden;
-            
-}
-.cajon5{
-    position: sticky;
-    background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
-    width: 300px;
-            height: 300px;
-            border: 6px solid #ffffffe0;
-            margin: 2rem auto;
-            overflow: hidden;
-            align-content: center;
-            
+        .example-box p {
+            padding: 15px;
+            font-size: 0.9rem;
+        }
 
-}
+        /* --- TIPOS DE POSICIONAMIENTO --- */
 
-</style>
+        .cajon1 {
+            position: static; /* Es el valor por defecto */
+        }
+
+        .cajon2 {
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Contenedor para que el absolute no se vaya al inicio de la web */
+        .abs-container {
+            position: relative;
+            height: 400px;
+            border: 2px dashed #ccc;
+            width: 350px;
+            margin: auto;
+        }
+        .cajon3 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0; /* Absolute ignora el margin auto */
+            width: 200px;
+            height: 200px;
+        }
+
+        .cajon4 {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            font-size: 0.7rem;
+            z-index: 100;
+            background-color: rgba(255, 69, 0, 0.8); /* Color distinto para resaltar */
+        }
+
+        .cajon5 {
+            position: sticky;
+            top: 10px; /* Se queda pegado al llegar a 10px del tope */
+            z-index: 10;
+        }
+
+    </style>
+</head>
 <body>
     
     <main>
         <header>
             <a href="../../index.html" class="btn-home" title="Inicio">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 256 256">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 256 256">
                     <path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68Z"></path>
                 </svg>
             </a>
-            <h1>position</h1>
+            <h1>CSS Position Explorer</h1>
+            <p>Aprende cómo se comportan los elementos en el espacio.</p>
         </header>
-            <h3>- Normal/Static</h3>
-            <section class="example-box cajon1"></section>
 
-            <h3>- Relative</h3>
-            <section class="example-box cajon2"></section>
-            <h3>- Absolute</h3>
-            <section class="example-box cajon3"></section>
-            <h3>- Fixed</h3>
-            <section class=" example-box cajon4"></section>
-            <h3>- Sticky</h3>
-            <section class="example-box cajon5"></section>
+        <h3>1. Static (Normal)</h3>
+        <section class="example-box cajon1">
+            <span>STATIC</span>
+            <p>Sigue el flujo natural de la página. No le afectan top, bottom, left o right.</p>
+        </section>
+
+        <h3>2. Relative</h3>
+        <section class="example-box cajon2">
+            <span>RELATIVE</span>
+            <p>Se mueve respecto a su posición original sin afectar a los demás elementos.</p>
+        </section>
+
+        <h3>3. Absolute (Dentro de un contenedor Relative)</h3>
+        <div class="abs-container">
+            <section class="example-box cajon3">
+                <span>ABSOLUTE</span>
+                <p>Se posiciona respecto a su ancestro posicionado más cercano.</p>
+            </section>
+        </div>
+
+        <h3>4. Sticky</h3>
+        <section class="example-box cajon5">
+            <span>STICKY</span>
+            <p>¡Haz scroll! Me quedaré pegado al tope cuando me alcances.</p>
+        </section>
+
+        <!-- El Fixed suele ir al final o fuera para no estorbar el flujo -->
+        <section class="example-box cajon4">
+            <span>FIXED</span>
+            <p>Siempre me verás en la esquina, sin importar el scroll.</p>
+        </section>
+
     </main>
     
 </body>
