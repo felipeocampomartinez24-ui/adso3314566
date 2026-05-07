@@ -3,55 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>background</title>
-</head>
-<style>
-    body{
-        align-items:self-start ;
-        margin: auto;
-        background-color: #656877;
-        margin: auto;
-        font-size: #fff;
-        font-family: Arial, Helvetica, sans-serif;
-        content: none;
-        text-align: center;
-    }
-    .box1{
-            width: 300px;
-            height: 300px;
-            border: 6px solid #ffffffe0;
-            margin: 2rem auto;
-            background: url('../../src/imgs/naruto.jpg') center/cover no-repeat;
-            overflow: hidden;
-            content: normal;
+    <title>13-box-model & backgrounds</title>
+    <style>
+        body {
+            background-color: #656877;
+            color: #fff; /* Corregido: era color, no font-size */
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
         }
 
-    
+        ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+        }
 
-</style>
+        /* Clase base para todos los ejemplos */
+        .example-box {
+            width: 300px;
+            height: 200px;
+            border: 6px solid #ffffffe0;
+            margin: 2rem auto;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 1px 1px 5px black;
+            font-weight: bold;
+        }
+
+        /* 1. Background Color */
+        .bg-color {
+            background-color: #4b97a5;
+        }
+
+        /* 2. Background Image */
+        .bg-image {
+            background-image: url('../../src/imgs/naruto.jpg');
+            /* Sin otras propiedades, la imagen se repite y no se ajusta */
+        }
+
+        /* 3. Background Repeat */
+        .bg-repeat {
+            background-image: url('../../src/imgs/naruto.jpg');
+            background-size: 50px; /* Pequeña para notar la repetición */
+            background-repeat: repeat-x; /* Se repite solo horizontal */
+        }
+
+        /* 4. Background Position */
+        .bg-position {
+            background-image: url('../../src/imgs/naruto.jpg');
+            background-repeat: no-repeat;
+            background-position: bottom right; /* Se va a la esquina inferior derecha */
+        }
+
+        /* 5. Background Size */
+        .bg-size {
+            background-image: url('../../src/imgs/naruto.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; /* Ajusta la imagen sin recortarla */
+        }
+
+        /* Ejemplo Final Combinado (Shorthand) */
+        .box-combined {
+            width: 300px;
+            height: 300px;
+            border: 6px solid #fff;
+            margin: 2rem auto;
+            /* shorthand: color image position / size repeat */
+            background: #2f3542 url('../../src/imgs/naruto.jpg') center/cover no-repeat;
+        }
+    </style>
+</head>
 <body>
     <main>
-    <header>
-         <header>
+        <header>
             <a href="../../index.html" class="btn-home" title="Inicio">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 256 256">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" viewBox="0 0 256 256">
                     <path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68Z"></path>
                 </svg>
             </a>
-       
-    </header>
-     <h1>13-box-model</h1>
-     <ul>
-        <li>- background-color</li>
-    <li>- background-image </li>
-    <li>- background-repeat </li>
-    <li>-background-position </li>
-    <li>- background-size</li>
-     </ul>
-     
-        <section class="box-1" id="box1"></section>
+            <h1>13-box-model & Backgrounds</h1>
+        </header>
+
+        <ul>
+            <li>- background-color</li>
+            <li>- background-image</li>
+            <li>- background-repeat</li>
+            <li>- background-position</li>
+            <li>- background-size</li>
+        </ul>
+
+        <hr>
+
+        <section>
+            <h3>1. Color</h3>
+            <div class="example-box bg-color">Solo Color</div>
+
+            <h3>2. Image (Default)</h3>
+            <div class="example-box bg-image">Imagen simple</div>
+
+            <h3>3. Repeat (Eje X)</h3>
+            <div class="example-box bg-repeat">Repetición Horizontal</div>
+
+            <h3>4. Position (Bottom Right)</h3>
+            <div class="example-box bg-position">Posicionada</div>
+
+            <h3>5. Size (Contain)</h3>
+            <div class="example-box bg-size">Tamaño "Contain"</div>
+
+            <h3>6. Combinado (Center/Cover)</h3>
+            <div class="box-combined">Todo en una línea</div>
         </section>
-        <section class="box-2" id="box2"></section>
     </main>
 </body>
 </html>
