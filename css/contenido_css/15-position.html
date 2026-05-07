@@ -6,13 +6,14 @@
     <title>position</title>
 </head> 
 <style>
-    body{
-        align-content: center;
-        display: flex;
-        background-color: oklab(73.601% -0.11216 -0.02999);
-        font-size:4px ;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
+    body {
+            background-color: #656877;
+            color: #fff; /* Corregido: era color, no font-size */
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
     .example-box {
             width: 300px;
             height: 200px;
@@ -25,6 +26,62 @@
             text-shadow: 1px 1px 5px black;
             font-weight: bold;
         }
+
+.cajon1{
+    background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
+    position: static;width: 300px;
+            height: 300px;
+            border: 6px solid #ffffffe0;
+            margin: 2rem auto;
+            
+            overflow: hidden;
+            
+}
+.cajon2{
+    position: relative;
+    background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
+    width: 300px;
+            height: 300px;
+            border: 6px solid #ffffffe0;
+            margin: 2rem auto;
+           
+            overflow: hidden;
+            
+}
+.cajon3{
+ position: absolute;
+ background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
+width: 300px;
+            height: 300px;
+            border: 6px solid #ffffffe0;
+            margin: 2rem auto;
+            
+            overflow: hidden;
+            
+}
+.cojon4{
+position: fixed;
+background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
+width: 300px;
+            height: 300px;
+            border: 6px solid #ffffffe0;
+            margin: 2rem auto;
+            
+            overflow: hidden;
+            
+}
+.cajon5{
+    position: sticky;
+    background: rgb(81, 154, 167) url(../../src/imgs/naruto-png-clipart.jpg);
+    width: 300px;
+            height: 300px;
+            border: 6px solid #ffffffe0;
+            margin: 2rem auto;
+            
+            overflow: hidden;
+            
+
+}
 
 </style>
 <body>
