@@ -1,0 +1,18 @@
+<style>
+    .viz-box { width: 150px; height: 150px; background: teal; margin: 10px; }
+    .display-none { display: none; } /* No ocupa espacio */
+    .visibility-hidden { visibility: hidden; } /* Ocupa espacio pero no se ve */
+    .overflow-scroll { overflow: scroll; background: #444; }
+    .z-container { position: relative; height: 100px; }
+    .z1 { position: absolute; background: red; z-index: 1; top: 0; left: 0; }
+    .z2 { position: absolute; background: blue; z-index: 2; top: 20px; left: 20px; }
+</style>
+<section>
+    <div class="viz-box display-none">No me verás</div>
+    <div class="viz-box visibility-hidden">Espacio vacío</div>
+    <div class="viz-box overflow-scroll">Mucho texto aquí para probar el scroll... mucho más texto...</div>
+    <div class="z-container">
+        <div class="viz-box z1">Z-index 1</div>
+        <div class="viz-box z2">Z-index 2</div>
+    </div>
+</section>

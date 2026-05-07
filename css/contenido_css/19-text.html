@@ -1,0 +1,16 @@
+<style>
+    .cursor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+    .cursor-box { padding: 15px; border: 1px solid #fff; font-size: 10px; }
+    .c-help { cursor: help; }
+    .c-wait { cursor: wait; }
+    .c-cross { cursor: crosshair; }
+    .c-not { cursor: not-allowed; }
+    .c-grab { cursor: grab; }
+</style>
+<div class="cursor-grid">
+    <div class="cursor-box c-help">Ayuda (?)</div>
+    <div class="cursor-box c-wait">Cargando...</div>
+    <div class="cursor-box c-cross">Mira</div>
+    <div class="cursor-box c-not">Prohibido</div>
+    <div class="cursor-box c-grab">Agarrar</div>
+</div>
