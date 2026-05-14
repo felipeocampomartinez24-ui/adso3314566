@@ -1,50 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../03_style.css">
-    <title>01-document-</title>
-    
-</head>
-<section>
-    <div class="adso">
-<style>
-    
-    section div.rotate {
-        background: -moz-linear-gradient(rgb(79, 219, 235),rgb(0, 229, 255));
-        border-radius: 0.4rem;
-        color: aliceblue;
-        padding: 1rem;
-        margin: 4rem auto;
-        font-size: 3.6rem;
-    }
-    
-</style>
-</div>
-</section>
-<body>
-    <main>
-    <a href="/index.html" class="btn-home">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
-            <path
-                d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z">
-            </path>
-        </svg>
-    </a>
-        
-        <h1>01-document style</h1>
+    <title>Estructura CSS Interno</title>
 
-        <p>This way we can include CSS within the style tag, it is very useful when you only have an html document.</p>
-        <ul>
-        <section> 
+    <style>
+        /* Aquí va todo tu CSS */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .contenedor {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .adso {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="contenedor">
+        <nav>
+            <a href="index.html">Volver</a>
+        </nav>
+
+        <header>
+            <h1>Título del Documento</h1>
+            <p>Descripción del estilo aplicado.</p>
+        </header>
+
+        <section>
             <div class="adso">
-            <h1>plata</h1>
+                <h2>PLATA</h2>
             </div>
-            
         </section>
-        </ul>
-                
     </main>
+
 </body>
 </html>
