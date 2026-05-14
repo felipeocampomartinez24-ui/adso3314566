@@ -330,3 +330,16 @@ main {
     /* El nieto hereda el color del padre y el tamaño, 
      pero añade su propio grosor de letra */
 }
+.contenedor {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .adso {
+            background: linear-gradient(to right, #3f0a45, #b119cc);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
