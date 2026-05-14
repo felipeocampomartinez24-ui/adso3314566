@@ -1,59 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/03_style.css">
     <title>sprite</title>
     <style>
-        div·sprite {
-            background: url(/src/imgs/anim-sprite.png);
+        
+        .sprite {
+            /* USA LA IMAGEN QUE TE ACABO DE GENERAR */
+            background-image: url('/src/imgs/anim-sprite.png'); /* Asegúrate de que esta ruta sea correcta */
+            background-repeat: no-repeat;
             height: 256px;
             width: 256px;
-            margin: 1rem auto;
+            margin: 2rem auto;
+            border: 1px solid #ccc; /* Opcional, para ver el recuadro */
         }
         
-        div#sprite.sp1{background-position: calc(-256px *1) 0;}
-        div#sprite.sp1{background-position: calc(-256px *2) 0;}
-        div#sprite.sp1{background-position: calc(-256px *3) 0;}
-        div#sprite.sp1{background-position: calc(-256px *4) 0;}
-        div#sprite.sp1{background-position: calc(-256px *5) 0;}
-        div#sprite.sp1{background-position: calc(-256px *6) 0;}
-
-
+        /* Definición de la posición para CADA frame (CORREGIDO) */
+        /* sp1 es el frame 1, empieza en 0. sp2 es el frame 2, etc. */
+        div#sprite1.sp1 { background-position: 0 0; }
+        div#sprite1.sp2 { background-position: calc(-256px * 1) 0; }
+        div#sprite1.sp3 { background-position: calc(-256px * 2) 0; }
+        div#sprite1.sp4 { background-position: calc(-256px * 3) 0; }
+        div#sprite1.sp5 { background-position: calc(-256px * 4) 0; }
+        div#sprite1.sp6 { background-position: calc(-256px * 5) 0; }
     </style>
-
 </head>
-
 <body>
     <header>
-        <h1>23-sprite</h1>
+        <h1>sprite</h1>
         <h2>An image sprite is a collection of images put into a single image.</h2>
     </header>
-    <section>
-        <div id="sprite" class="sp1"></div>
-    </section>
+
+   
+    <div id="sprite1" class="sprite sp1"></div>
+
     <script>
-    // 1. Corregido: getElementById usa paréntesis (), no =
-    const sprite = document.getElementById('sprite1'); 
-    const numsprite = 6; 
-    let count = 1;
+        const spriteElement = document.getElementById('sprite1'); 
+        const numsprite = 6; // Total de frames
+        let count = 1; // Empezamos en el frame 1
 
-    // 2. Corregido: la función de flecha es () => { ... }
-    setInterval(() => {
-        // 3. Corregido: es className (con doble 's') 
-        // Dejamos una clase base 'sprite' para el diseño y 'spX' para la posición
-        sprite.className = 'sprite sp' + count;
+        // Iniciamos el intervalo de animación
+        setInterval(() => {
+            // Actualizamos las clases. Mantenemos 'sprite' y cambiamos 'spX'
+            spriteElement.className = 'sprite sp' + count;
 
-        // 4. Lógica de conteo simplificada
-        if (count >= numsprite) {
-            count = 1;
-        } else {
+            // Incrementamos el contador
             count++;
-        }
-    }, 80); 
-</script>
-</body>
 
+            // Si superamos el último frame, volvemos al primero
+            if (count > numsprite) {
+                count = 1;
+            }
+        }, 100); // 100ms es una buena velocidad para 6 frames
+    </script>
+</body>
 </html>
