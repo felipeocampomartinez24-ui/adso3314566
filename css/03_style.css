@@ -331,7 +331,7 @@ main {
      pero añade su propio grosor de letra */
 }
 .contenedor {
-            background: white;
+            background: rgb(75, 170, 183);
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
