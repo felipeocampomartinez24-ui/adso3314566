@@ -1,61 +1,264 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/03_style.css">
-    <title>sprite</title>
-    <style>
-        
-        .sprite {
-            /* USA LA IMAGEN QUE TE ACABO DE GENERAR */
-            background-image: url('/src/imgs/anim-sprite.png'); /* Asegúrate de que esta ruta sea correcta */
-            background-repeat: no-repeat;
-            height: 256px;
-            width: 256px;
-            margin: 2rem auto;
-            border: 1px solid #ccc; /* Opcional, para ver el recuadro */
-        }
-        
-        /* Definición de la posición para CADA frame (CORREGIDO) */
-        /* sp1 es el frame 1, empieza en 0. sp2 es el frame 2, etc. */
-        div#sprite1.sp1 { background-position: 0 0; }
-        div#sprite1.sp2 { background-position: calc(-256px * 1) 0; }
-        div#sprite1.sp3 { background-position: calc(-256px * 2) 0; }
-        div#sprite1.sp4 { background-position: calc(-256px * 3) 0; }
-        div#sprite1.sp5 { background-position: calc(-256px * 4) 0; }
-        div#sprite1.sp6 { background-position: calc(-256px * 5) 0; }
-    </style>
+    <title>Sprite Web Layout</title>
 </head>
+<style>
+    main {
+        background-color: #17a056;
+        border: 2px solid rgb(250, 250, 250);
+        min-height: 100dvh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .logo-top {
+        background: url(spriteweb.png);
+        width: 180px;
+        height: 140px;
+        background-position: -10px 180px;
+        margin: 1rem auto;
+    }
+
+    header {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    header a {
+        background: #0b4d24;
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-family: Arial, sans-serif;
+        padding: 12px;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.4s ease-in;
+        width: 20%;
+        border: #ffffff 2px solid;
+        box-sizing: border-box;
+    }
+
+    header a:hover {
+        background: #17a056;
+    }
+
+    .contenedor-principal {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        background-color: #0b4d24;
+        padding: 25px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 2px solid #063116;
+    }
+
+    .cuadro {
+        width: 200px;
+        height: 155px;
+        background: url(spriteweb.png);
+        border: #ffffff 2px solid;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 15px;
+    }
+
+    .cuadro-1 {
+        background-position: -590px -10px;
+    }
+
+    .cuadro-2 {
+        background-position: -590px -10px;
+    }
+
+    .cuadro-3 {
+        background-position: -590px -10px;
+    }
+
+    .texto {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        color: #000000;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+    }
+
+    .saludo {
+        color: white;
+        padding-left: 10px;
+        font-family: sans-serif;
+    }
+
+    .cuadro-contenido {
+        background-color: #ffffff;
+        border: #000000 2px solid;
+        margin: 1.5rem auto;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        max-width: 95%;
+        box-sizing: border-box;
+    }
+
+    .sprite-left-logo {
+        background: url(spriteweb.png);
+        width: 100px;
+        height: 100px;
+        background-position: -296px 712px;
+        flex-shrink: 0;
+    }
+
+    .sprite-right-lata {
+        background: url(spriteweb.png);
+        width: 110px;
+        height: 150px;
+        background-position: -71px -214px;
+        flex-shrink: 0;
+    }
+
+    .texto-descripcion {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333333;
+        text-align: justify;
+        margin: 0;
+        flex: 1;
+    }
+
+    .texto-verde {
+        color: #0b4d24;
+        font-weight: bold;
+    }
+
+    .abajo {
+        background-color: #ffffff;
+        background-position: -100px -100px;
+        background-size: 900px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+        padding: 20px 0px 20px 0px;
+        border: 2px solid #000;
+
+    }
+
+    .menu a {
+        color: #333333;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.536);
+        padding: 5px 10px;
+        padding-top: 2rem;
+        border-radius: 4px;
+    }
+
+    .menu a.active,
+    .menu a:hover {
+        color: #17a056;
+        background-color: #ffffffa4;
+    }
+
+    .final-logo {
+        background: url(spriteweb.png);
+        width: 255px;
+        height: 184px;
+        background-position: -511px 784px;
+        flex-shrink: 0;
+    }
+</style>
+
 <body>
-    <header>
-        <h1>sprite</h1>
-        <h2>An image sprite is a collection of images put into a single image.</h2>
-    </header>
+    <main>
+        <div class="logo-top"></div>
 
-   
-    <div id="sprite1" class="sprite sp1"></div>
+        <header>
+            <a class="home">INICIO</a>
+            <a  class="nosotros">NOSOTROS</a>
+            <a  class="portafolio">PORTAFOLIO</a>
+            <a  class="servicios">SERVICIOS</a>
+            <a  class="contact">CONTACTO</a>
+        </header>
 
-    <script>
-        const spriteElement = document.getElementById('sprite1'); 
-        const numsprite = 6; // Total de frames
-        let count = 1; // Empezamos en el frame 1
+        <div class="contenedor-principal">
+            <div class="cuadro cuadro-1">
+                <span class="texto">Sprite 01</span>
+            </div>
+            <div class="cuadro cuadro-2">
+                <span class="texto">Sprite 02</span>
+            </div>
+            <div class="cuadro cuadro-3">
+                <span class="texto">Sprite 03</span>
+            </div>
+        </div>
 
-        // Iniciamos el intervalo de animación
-        setInterval(() => {
-            // Actualizamos las clases. Mantenemos 'sprite' y cambiamos 'spX'
-            spriteElement.className = 'sprite sp' + count;
+        <p class="saludo">hola</p>
 
-            // Incrementamos el contador
-            count++;
+        <section class="cuadro-contenido">
+            <div class="sprite-left-logo"></div>
+            <p class="texto-descripcion">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, mollitia non sed cum corrupti
+                est dolorem beatae ullam nostrum repudiandae a at dolore quibusdam atque libero ipsa quae odit? Sunt
+                culpa doloribus reprehenderit necessitatibus eius in ipsam itaque molestiae sed dicta soluta reiciendis
+                ex quaerat rerum neque, dignissimos assumenda possimus quae dolorem minus. Voluptate, id tenetur sunt
+                sed molestias ullam.
+            </p>
+            <div class="sprite-right-lata"></div>
+        </section>
 
-            // Si superamos el último frame, volvemos al primero
-            if (count > numsprite) {
-                count = 1;
-            }
-        }, 100); // 100ms es una buena velocidad para 6 frames
-    </script>
+        <section class="cuadro-contenido">
+            <div class="sprite-left-logo"></div>
+            <p class="texto-descripcion">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, mollitia non sed cum corrupti
+                est dolorem beatae ullam nostrum repudiandae a at dolore quibusdam atque libero ipsa quae odit? Sunt
+                culpa doloribus reprehenderit necessitatibus eius in ipsam itaque molestiae sed dicta soluta reiciendis
+                ex quaerat rerum neque, dignissimos assumenda possimus quae dolorem minus. Voluptate, id tenetur sunt
+                sed molestias ullam.
+            </p>
+            <div class="sprite-right-lata"></div>
+        </section>
 
-    
+        <section class="cuadro-contenido">
+            <div class="sprite-left-logo"></div>
+            <p class="texto-descripcion texto-verde">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, mollitia non sed cum corrupti
+                est dolorem beatae ullam nostrum repudiandae a at dolore quibusdam atque libero ipsa quae odit? Sunt
+                culpa doloribus reprehenderit necessitatibus eius in ipsam itaque molestiae sed dicta soluta reiciendis
+                ex quaerat rerum neque, dignissimos assumenda possimus quae dolorem minus. Voluptate, id tenetur sunt
+                sed molestias ullam.
+            </p>
+            <div class="sprite-right-lata"></div>
+        </section>
+        <section class="abajo">
+            <div class="final-logo"></div>
+            <section class="sprite_final">
+                <section class="menu">
+                    
+                    <a  class="active">INICIO</a>
+                    <a >NOSOTROS</a>
+                    <a >PORTAFOLIO</a>
+                    <a >SERVICIOS</a>
+                    <a >CONTACTO</a>
+
+                </section>
+            </section>
+        </section>
+    </main>
 </body>
+
 </html>
