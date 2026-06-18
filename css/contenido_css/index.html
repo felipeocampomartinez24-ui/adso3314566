@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29 - New Backgrounds</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+    
+
+    section div {
+        border: 2px solid #000;
+        border-radius: 10px;
+        height: 300px; /* CORREGIDO: Tenías 300pxpx */
+        width: 320px;
+        margin-bottom: 20px;
+        
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #ccc;
+        margin: 40px 0;
+    }
+
+    /* ---- 1. BACKGROUNDS MÚLTIPLES ---- */
+    div.multiples {
+    /* ORDEN DE CAPAS (Z-index invisible):
+       1. bg1.png -> Al frente (Top)
+       2. bg2.png -> En el medio
+       3. bg3.png -> Al fondo (Bottom)
+    */
+    background-image: url('bg1.png'),
+                      url('bg2.png'),
+                      url('bg3.png');
+
+    /* Controlamos el comportamiento de cada una por orden */
+    background-repeat: no-repeat;
+    
+    /* Posicionamos cada imagen en un lugar diferente para que no se tapen */
+    background-position: top left, center, bottom right; 
+    
+    /* Les damos un tamaño menor al contenedor para que convivan juntas */
+    background-size: 540px 80px, 120px 120px, 100px 100px;
+    
+    /* El color de fondo siempre se renderiza detrás de TODAS las imágenes */
+    background-color: #d55454; 
+
+    /* RESTAURADO: Volvemos al tamaño de tu contenedor estándar de la sección */
+    width: 320px;
+    height: 300px;
+}
+
+    /* ---- 2. DEGRADADOS (GRADIENTS) ---- */
+    div.gradient1 {
+        background: linear-gradient(to top, #7c6d8a, #350256);
+    }
+
+    div.gradient2 {
+        /* Cambiado a grados (degrees) para que coincida con tu título */
+        background: linear-gradient(45deg, #056517, #06dc18);
+    }
+
+    div.gradient3 {
+        /* Bandera de Colombia balanceada proporcionalmente (50% amarillo, 25% azul, 25% rojo) */
+        background: linear-gradient(to bottom, #fcd116 50%, #003893 50%, #003893 75%, #ce1126 75%);
+    }
+
+    div.gradient4 {
+        /* CORREGIDO: Se usa repeating-linear-gradient para crear un patrón real de líneas verticales alternadas */
+        background: repeating-linear-gradient(to right, #ffffff, #ffffff 15px, #4b4b4b 15px, #4b4b4b 30px);
+    }
+
+    div.gradient5 {
+        background: radial-gradient(circle, #d7e740 50%, #1c0487 50%);
+        background-size: 40px 40px; /* Aumentado ligeramente para mejor visibilidad */
+    }
+
+    div.gradient6 {
+        /* CORREGIDO: Ajustado el tiro al blanco concéntrico con franjas perfectamente definidas */
+        background: radial-gradient(circle, #ffffff 15%, #676767 15%, #676767 30%, #ffffff 30%, #ffffff 45%, #676767 45%, #676767 60%, #ffffff 60%);
+    }
+
+    div.gradient7 {
+        background: conic-gradient(#d7e740 0% 25%, #1c0487 25% 50%, #f90a02 50% 75%, #ffffff 75% 100%);
+    }
+
+    /* ---- 3. BACKGROUND CLIP (TEXTO) ---- */
+    h4.clip1, h4.clip2 {
+        font-size: 80px;
+        font-weight: 900;
+        margin: 10px 0;
+        text-transform: uppercase;
+        background-size: cover;
+        background-position: center;
+        
+        /* Efecto de recorte de texto */
+        background-clip: text;
+        -webkit-background-clip: text; 
+        color: transparent; 
+    }
+
+    h4.clip1 {
+        background-image: linear-gradient(to right, #00c6ff, #0072ff);
+    }
+
+    h4.clip2 {
+        /* Imagen de fuego usando un placeholder online */
+        background-image: url('https://images.unsplash.com/photo-1544465544-1b71aae9dfa3?q=80&w=600&auto=format&fit=crop');
+    }
+
+    /* ---- 4. BACKGROUND MASK ---- */
+    div.mask {
+        background: linear-gradient(45deg, #16a0b8, #7c898d);
+        
+        /* Máscara: Solo dibuja el fondo donde el SVG tenga color sólido (un círculo con bordes difuminados) */
+        mask-image: radial-gradient(circle, black 40%, transparent 70%);
+        -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+    }
+</style>
+</head>
+
+<body>
+    <main>
+        <h1>Welcome to My Website</h1>
+        <h4>29-new-backgrounds - New Features (multiple, gradients, clip, mask)</h4>
+        
+        <menu>
+            <a href="#multiples">Bgs Múltiples</a>
+            <a href="#gradients">Bgs Gradients</a>
+            <a href="#clip">Bgs Clip</a>
+            <a href="#mask">Bg Mask</a>
+        </menu>
+
+        <section>
+            <h2>29. New Backgrounds</h2>
+
+            <h3>Bgs Múltiples:</h3>
+            <div class="multiples"></div>
+
+            <hr>
+
+            <h3>Bgs Gradients:</h3>
+
+            <h5>linear-gradient(to direction, color1, color2)</h5>
+            <div class="gradient1"></div>
+
+            <h5>linear-gradient(degrees, color1, color2)</h5>
+            <div class="gradient2"></div>
+
+            <h5>Colombia Flag</h5>
+            <div class="gradient3"></div>
+
+            <h5>Vertical Lines</h5>
+            <div class="gradient4"></div>
+
+            <h5>radial-gradient(shape, color1, color2)</h5>
+            <div class="gradient5"></div>
+
+            <h5>BullsEye</h5>
+            <div class="gradient6"></div>
+
+            <h5>conic-gradient(color1, color2)</h5>
+            <div class="gradient7"></div>
+
+            <hr>
+
+            <h3>Bgs Clip:</h3>
+            <h4 class="clip1">ADSO</h4>
+            <h4 class="clip2">fire</h4>
+
+            <hr>
+
+            <h3>Bg Mask:</h3>
+            <div class="mask"></div>
+        </section>
+    </main>
+</body>
+
+</html>
