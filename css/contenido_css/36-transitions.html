@@ -7,7 +7,7 @@
     <style>
         /* Agregué un fondo oscuro para que resalte tu drop-shadow blanco */
         body {
-            background-color: #121212;
+            background-color:blueviolet;
             color: white;
             font-family: sans-serif;
         }
@@ -50,6 +50,22 @@
                     transform: translate(100px);
                 }
             }
+        }
+
+        div.box{
+            background-color: white;
+            height:80px ;
+            width:80px ;
+            margin-block: 2rem;
+            transition:width 1s,
+                        height 1s 1s,
+                        background-color 2s 1s;
+            &:hover{
+                background-color: red;
+                width: 300px;
+                height: 160px;
+            }
+
         }
     </style>
 </head>
