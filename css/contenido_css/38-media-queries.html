@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/03_style.css">
+    <title>38-media-queries</title>
+    <style>
+        /* ==========================================
+           ESTILOS BASE (Mobile First - Celulares)
+           ========================================== */
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            
+            h1 {
+                margin: 0;
+                color: #fb8500;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            h2 {
+                margin: 5px 0 0;
+                font-size: 1rem;
+                color: #a0a0a5;
+                font-weight: 400;
+            }
+        }
+
+        /* Contenedor principal usando Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr; /* Una sola columna en celulares */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #262626;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            
+            h3 {
+                margin-top: 0;
+                color: #ffb703;
+            }
+            p {
+                color: #cccccc;
+                margin-bottom: 0;
+            }
+        }
+
+        /* ==========================================
+           MEDIA QUERY: TABLETAS (Ancho mínimo: 600px)
+           ========================================== */
+        @media (min-width: 600px) {
+            body {
+                background-color: #111e25; /* Cambia a un tono azul oscuro */
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            }
+        }
+
+        /* ==========================================
+           MEDIA QUERY: COMPUTADORAS (Ancho mínimo: 900px)
+           ========================================== */
+        @media (min-width: 900px) {
+            body {
+                background-color: #141f19; /* Cambia a un tono verde oscuro */
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>38-media-queries</h1>
+        <h2>Modifies the layout depending on the device characteristics (like viewport width).</h2>
+    </header>
+
+    <main class="grid-container">
+        <div class="card">
+            <h3>Feature One</h3>
+            <p>This card will adapt its position and size depending on your screen resolution seamlessly.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Feature Two</h3>
+            <p>Using Mobile-First design ensures that weak devices load less heavy computational layout blocks.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Feature Three</h3>
+            <p>Media queries are the core foundation of modern responsive web design practices.</p>
+        </div>
+    </main>
+
+</body>
+</html>
