@@ -12,29 +12,29 @@
             
         }
         .h2{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
-        /* Agregué un fondo oscuro para que resalte tu drop-shadow blanco */
+        
         body {
             background-color:blueviolet;
             color: white;
            
         }
 
-        /* Corregido: En tu HTML usas <section>, no <main><section> */
+        
         section {
             img {
                 border: none;
                 border-radius: 0;
                 filter: drop-shadow(0 0 12px rgb(255, 255, 255));
-                /* Buena práctica: darle un tamaño base para que no rompa el diseño */
+                
                 width: 150px; 
                 margin: 10px;
             }
 
-            /* CORREGIDO: Se quitaron los ":" después de la clase y se arregló "transform" */
+           
             img.transition1 {
                 transition: transform 0.5s ease-in;
                 
-                /* CORREGIDO: Se eliminó el "hover{}" duplicado interno */
+                
                 &:hover {
                     transform: scale(1.3);
                 }
@@ -43,13 +43,13 @@
             img.transition2 {
                 transition: transform 0.5s ease-in;
                 
-                /* CORREGIDO: Se eliminó el "hover{}" duplicado y se usó transform */
+               
                 &:hover {
                     transform: rotate(-180deg);
                 }
             }
 
-            /* AGREGADO: La clase transition3 que tenías en el HTML pero no en CSS */
+           
             img.transition3 {
                 transition: transform 0.5s ease-in;
                 
