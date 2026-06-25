@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+/* Cambia el cursor a una mano con el dedo índice levantado */
+.mi-boton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+/* Cambia el cursor a un signo de interrogación o ayuda */
+.caja-ayuda {
+  padding: 10px;
+  background-color: #e2e3e5;
+  border: 1px solid #ced4da;
+  cursor: help; 
+}
+
+/* Cambia el cursor a un círculo con una línea diagonal (prohibido) */
+.caja-prohibido {
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  cursor: not-allowed; 
+}
+
+/* Cambia el cursor a la clásica "I" de selección de texto */
+.caja-texto {
+  padding: 10px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  cursor: text; 
+}
+.h1{
+    font-size: medium;
+    background-color: #007bff;
+    font-family: 'Courier New', Courier, monospace;
+
+    }    
+
+.div{
+        box-shadow: #007bff;
+        width: 100px;
+        height: 100px;
+    }
+
+.h2{
+        font-family: 'Courier New', Courier, monospace;
+        }
+        
+
+
+
+</style>
+<main>
+<body>
+    <h1>cursors</h1>
+    <h2>ejemplo</h2>
+
+        <div class="contenedor">
+            <button class="mi-boton">Pasa el mouse aquí (Click)</button>
+            <div class="caja-ayuda">¿Necesitas ayuda?</div>
+            <div class="caja-prohibido">Zona restringida</div>
+            <div class="caja-texto">Pasa el mouse para seleccionar texto</div>
+        </div>
+</main>
+
+
+
+
+</body>
+</html>
