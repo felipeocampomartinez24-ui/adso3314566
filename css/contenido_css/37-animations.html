@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37-animations</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        section {
+            /* El escenario principal */
+            div.jungle {
+                background: url('/src/imgs/jungle (1).png') no-repeat center/cover;
+                border-radius: 4px;
+                margin-block: 2rem;
+                position: relative;
+                height: 471px;
+                width: 100%;
+                overflow: hidden; /* Evita que las animaciones se salgan del contenedor */
+
+                /* Estilos base para las imágenes de los personajes dentro de la jungla */
+                img {
+                    position: absolute;
+                    bottom: 20px; /* Los alinea cerca del suelo de la jungla */
+                }
+
+                /* Clases listas para que les agregues tus @keyframes de animación */
+                img.logo {
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%); /* Centra el logo arriba */
+                    bottom: auto; 
+                    width: 200px;
+                }
+
+                img.dk {
+                    left: 10%;
+                    width: 120px;
+                }
+
+                img.rino {
+                    right: 10%;
+                    width: 120px;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>37-animations</h1>
+        <h2>Lets an element gradually change from one style to another.</h2>
+    </header>
+
+    <section>
+        <div class="jungle">
+            <img src="/src/imgs/dk.png" alt="Logo" class="logo">
+
+            <img src="/src/imgs/dk.png" alt="Donkey Kong" class="dk">
+            <img src="/src/imgs/ryno.png" alt="Rino" class="rino">
+        </div>
+    </section>
+
+</body>
+</html>
