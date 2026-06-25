@@ -3,116 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/03_style.css">
-    <title>38-media-queries</title>
+    <title>Document</title>
     <style>
-        /* ==========================================
-           ESTILOS BASE (Mobile First - Celulares)
-           ========================================== */
+        /* Transición global para que los cambios de fondo y texto sean fluidos */
+        * {
+            transition: all 0.5s ease-in;
+        }
+
         body {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: Poppins, sans-serif;
+            background-color: #003675; /* Azul Desktop (Pepsi) */
+            color: #fff;
             margin: 0;
-            padding: 20px;
-            transition: background-color 0.3s ease;
-        }
 
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-            
-            h1 {
-                margin: 0;
-                color: #fb8500;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-            }
-            h2 {
-                margin: 5px 0 0;
-                font-size: 1rem;
-                color: #a0a0a5;
-                font-weight: 400;
-            }
-        }
+            main {
+                padding: 4rem;
 
-        /* Contenedor principal usando Grid */
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr; /* Una sola columna en celulares */
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background-color: #262626;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            
-            h3 {
-                margin-top: 0;
-                color: #ffb703;
-            }
-            p {
-                color: #cccccc;
-                margin-bottom: 0;
-            }
-        }
-
-        /* ==========================================
-           MEDIA QUERY: TABLETAS (Ancho mínimo: 600px)
-           ========================================== */
-        @media (min-width: 600px) {
-            body {
-                background-color: #111e25; /* Cambia a un tono azul oscuro */
+                header {
+                    figure.logo {
+                        background: url(/src/imgs/pepsi01.png) no-repeat center/contain;
+                        height: 354px;
+                        width: 100%; /* Se cambió a 100% para evitar desborde */
+                        max-width: 919px;
+                        margin: 0 auto;
+                    }
+                }
+                
+                section {
+                    h1 {
+                        text-align: center;
+                        
+                        /* Por defecto en Desktop solo se muestra .lg */
+                        span.md, span.sm {
+                            display: none;
+                        }
+                    }
+                    p {
+                        margin-block: 4rem;
+                        text-align: justify;
+                        line-height: 2rem;
+                    }
+                }
             }
 
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-            }
-        }
+            /* ==========================================
+               MEDIA QUERY: TABLET (Menor a 1024px)
+               ========================================== */
+            @media (max-width: 1024px) {
+                background-color: #e21237; /* Cambia a Rojo Pepsi */
 
-        /* ==========================================
-           MEDIA QUERY: COMPUTADORAS (Ancho mínimo: 900px)
-           ========================================== */
-        @media (min-width: 900px) {
-            body {
-                background-color: #141f19; /* Cambia a un tono verde oscuro */
+                main section h1 {
+                    span.lg { display: none; } /* Oculta Desktop */
+                    span.md { display: inline; } /* Muestra Tablet */
+                }
             }
 
-            .grid-container {
-                grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            /* ==========================================
+               MEDIA QUERY: MÓVIL (Menor a 780px)
+               ========================================== */
+            @media (max-width: 780px) {
+                background-color: #000000; /* Cambia a Negro (Pepsi Black) */
+
+                main section h1 {
+                    span.md { display: none; } /* Oculta Tablet */
+                    span.sm { display: inline; } /* Muestra Móvil */
+                }
+                
+                main {
+                    padding: 1.5rem; /* Reduce el espacio en pantallas pequeñas */
+                }
             }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>38-media-queries</h1>
-        <h2>Modifies the layout depending on the device characteristics (like viewport width).</h2>
-    </header>
-
-    <main class="grid-container">
-        <div class="card">
-            <h3>Feature One</h3>
-            <p>This card will adapt its position and size depending on your screen resolution seamlessly.</p>
-        </div>
-        
-        <div class="card">
-            <h3>Feature Two</h3>
-            <p>Using Mobile-First design ensures that weak devices load less heavy computational layout blocks.</p>
-        </div>
-        
-        <div class="card">
-            <h3>Feature Three</h3>
-            <p>Media queries are the core foundation of modern responsive web design practices.</p>
-        </div>
+    <main>
+        <header>
+            <figure class="logo"></figure>
+        </header>
+        <section>
+            <h1>
+                Media Queries:
+                <span class="lg"> (> 1024px) 🖥️Desktop </span>
+                <span class="md"> (&lt; 1024px) 💻Tablet </span>
+                <span class="sm"> (&lt; 780px) 📱Mobile </span>
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti officiis ex harum alias velit repellat, ad soluta eos! Omnis accusamus eligendi enim quam, sed vitae quas, maxime culpa vero, exercitationem repellendus sit error quod esse ab odit qui possimus adipisci dolorum.
+            </p>
+        </section>
     </main>
-
 </body>
 </html>
