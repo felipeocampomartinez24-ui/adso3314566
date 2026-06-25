@@ -6,13 +6,12 @@
     <title>37-animations</title>
     <style>
         body {
-            background-color: #121212;
-            color: white;
+            background-color: #faf5f5;
+            color: #121212; /* Cambiado a oscuro para que el texto sea legible sobre fondo blanco */
             font-family: sans-serif;
         }
 
         section {
-            /* El escenario principal */
             div.jungle {
                 background: url('/src/imgs/jungle (1).png') no-repeat center/cover;
                 border-radius: 4px;
@@ -20,22 +19,19 @@
                 position: relative;
                 height: 471px;
                 width: 100%;
-                overflow: hidden; /* Evita que las animaciones se salgan del contenedor */
+                overflow: hidden;
 
-                /* Estilos base para las imágenes de los personajes dentro de la jungla */
                 img {
                     position: absolute;
-                    bottom: 20px; /* Los alinea cerca del suelo de la jungla */
+                    bottom: 20px;
                 }
 
-                /* Clases listas para que les agregues tus @keyframes de animación */
                 img.logo {
                     top: 20px;
                     left: 50%;
-                    transform: translateX(-50%); /* Centra el logo arriba */
                     bottom: auto; 
                     width: 200px;
-                    animation: 2s animlogo ease-in infinite;
+                    animation: logo 2s ease-in-out infinite;
                 }
 
                 img.dk {
@@ -43,13 +39,49 @@
                     width: 140px;
                     object-fit: contain;
                     z-index: 8;
-
+                    /* Usamos bottom en lugar de top para que herede la base correctamente */
+                    animation: dk 2s ease-in-out infinite;
                 }
 
                 img.rino {
                     right: 10%;
                     width: 120px;
+                    animation: rino 3s linear infinite;
                 }
+            }
+        }
+
+        /* ANIMACIONES */
+        @keyframes logo { 
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.15);
+            }
+        }
+
+        @keyframes dk {
+            0%, 100% { 
+                bottom: 20px; 
+                transform: rotate(0deg); 
+            }
+            40% { 
+                bottom: 120px; 
+                transform: rotate(-5deg); 
+            }
+            60% { 
+                bottom: 120px; 
+                transform: rotate(5deg); 
+            }
+        }
+
+        @keyframes rino {
+            0% {
+                right: -150px; /* Empieza fuera de la pantalla */
+            }
+            100% {
+                right: 110%; /* Cruza toda la pantalla hacia la izquierda */
             }
         }
     </style>
