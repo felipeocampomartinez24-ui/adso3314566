@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* Transición global para que los cambios de fondo y texto sean fluidos */
+        /* Transición global para que los cambios de fondo, texto e imagen sean fluidos */
         * {
             transition: all 0.5s ease-in;
         }
 
         body {
             font-family: Poppins, sans-serif;
-            background-color: #003675; /* Azul Desktop (Pepsi) */
+            background-color: #003675; /* Azul Desktop */
             color: #fff;
             margin: 0;
 
@@ -21,9 +21,10 @@
 
                 header {
                     figure.logo {
+                        /* IMAGEN BASE: Pepsi 01 */
                         background: url(/src/imgs/pepsi01.png) no-repeat center/contain;
                         height: 354px;
-                        width: 100%; /* Se cambió a 100% para evitar desborde */
+                        width: 100%;
                         max-width: 919px;
                         margin: 0 auto;
                     }
@@ -33,7 +34,6 @@
                     h1 {
                         text-align: center;
                         
-                        /* Por defecto en Desktop solo se muestra .lg */
                         span.md, span.sm {
                             display: none;
                         }
@@ -50,11 +50,20 @@
                MEDIA QUERY: TABLET (Menor a 1024px)
                ========================================== */
             @media (max-width: 1024px) {
-                background-color: #e21237; /* Cambia a Rojo Pepsi */
+                background-color: #e21237; /* Rojo Tablet */
 
-                main section h1 {
-                    span.lg { display: none; } /* Oculta Desktop */
-                    span.md { display: inline; } /* Muestra Tablet */
+                main {
+                    header {
+                        figure.logo {
+                            /* CAMBIO DE IMAGEN: Se mantiene pepsi01 o puedes variarla aquí también */
+                            background-image: url(/src/imgs/pepsi01.png);
+                        }
+                    }
+                    
+                    section h1 {
+                        span.lg { display: none; }
+                        span.md { display: inline; }
+                    }
                 }
             }
 
@@ -62,15 +71,22 @@
                MEDIA QUERY: MÓVIL (Menor a 780px)
                ========================================== */
             @media (max-width: 780px) {
-                background-color: #000000; /* Cambia a Negro (Pepsi Black) */
+                background-color: #000000; /* Negro Móvil */
 
-                main section h1 {
-                    span.md { display: none; } /* Oculta Tablet */
-                    span.sm { display: inline; } /* Muestra Móvil */
-                }
-                
                 main {
-                    padding: 1.5rem; /* Reduce el espacio en pantallas pequeñas */
+                    header {
+                        figure.logo {
+                            /* CAMBIO DE IMAGEN EN MÓVIL: Transiciona a pepsi02.png */
+                            background-image: url(/src/imgs/pepsi02.png);
+                        }
+                    }
+                    
+                    section h1 {
+                        span.md { display: none; }
+                        span.sm { display: inline; }
+                    }
+                    
+                    padding: 1.5rem;
                 }
             }
         }
