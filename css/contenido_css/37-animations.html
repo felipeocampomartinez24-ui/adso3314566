@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>37-animations - Combat Scene</title>
+    <title>37-animations</title>
     <style>
         body {
             background-color: #faf5f5;
-            color: #121212;
+            color: #121212; /* Cambiado a oscuro para que el texto sea legible sobre fondo blanco */
             font-family: sans-serif;
         }
 
@@ -20,8 +20,6 @@
                 height: 471px;
                 width: 100%;
                 overflow: hidden;
-                /* Animación que hace temblar la pantalla al momento del golpe */
-                animation: shake 4s ease-in-out infinite;
 
                 img {
                     position: absolute;
@@ -37,103 +35,60 @@
                 }
 
                 img.dk {
-                    left: 5%;
+                    left: 120px;
                     width: 140px;
                     object-fit: contain;
                     z-index: 8;
-                    /* Ataque coordinado de DK */
-                    animation: dk-attack 4s ease-in-out infinite;
+                    /* Usamos bottom en lugar de top para que herede la base correctamente */
+                    animation: dk 2s ease-in-out infinite;
                 }
 
                 img.rino {
-                    right: 5%;
+                    right: 10%;
                     width: 120px;
-                    /* Ataque coordinado de Rino */
-                    animation: rino-attack 4s ease-in-out infinite;
+                    animation: rino 3s linear infinite;
+                    animation: rino 0.2s ease-in-out infinite;
                 }
             }
         }
 
-        /* ANIMACIÓN DEL ESCENARIO (TEMBLOR DEL IMPACTO) */
-        @keyframes shake {
-            0%, 28%, 35%, 100% { transform: translate(0, 0); }
-            30% { transform: translate(-5px, 5px); }
-            31% { transform: translate(5px, -5px); }
-            32% { transform: translate(-5px, -5px); }
-            33% { transform: translate(5px, 5px); }
-            34% { transform: translate(-2px, 2px); }
-        }
-
-        /* ANIMACIÓN DE LOGO */
+        /* ANIMACIONES */
         @keyframes logo { 
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.15); }
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.15);
+            }
         }
 
-        /* ATAQUE DE DONKEY KONG */
-        @keyframes dk-attack {
-            0% { 
-                left: 5%; 
-                bottom: 20px;
-                transform: rotate(0deg);
-            }
-            20% { 
-                left: 15%; 
-                bottom: 20px;
-                transform: rotate(-10deg); /* Se prepara para saltar */
-            }
-            28% { 
-                left: 35%; 
-                bottom: 120px; /* Salta y avanza al centro */
-                transform: rotate(15deg); 
-            }
-            30% { 
-                left: 38%; 
-                bottom: 30px; /* Cae con el golpe (Impacto) */
-                transform: rotate(-20deg) scale(1.1); 
-            }
-            35% { 
-                left: 20%; 
-                bottom: 20px; /* Rebota hacia atrás por el choque */
+        @keyframes dk {
+            0%, 100% { 
+                bottom: 20px; 
                 transform: rotate(0deg); 
             }
-            100% { 
-                left: 5%; 
-                bottom: 20px; /* Regresa a su posición original */
-                transform: rotate(0deg);
+            40% { 
+                bottom: 120px; 
+                transform: rotate(-5deg); 
+            }
+            60% { 
+                bottom: 120px; 
+                transform: rotate(5deg); 
+            }
+            140% { 
+                bottom: 120px; 
+                transform: rotate(130deg); 
             }
         }
 
-        /* ATAQUE DEL RINOCERONTE */
-        @keyframes rino-attack {
-            0% { 
-                right: 5%; 
-                transform: scaleX(1);
+        @keyframes rino {
+            0% {
+                right: -150px; /* Empieza fuera de la pantalla */
             }
-            15% { 
-                right: 3%; 
-                transform: scaleX(1); /* Retrocede un poco tomando impulso */
+            100% {
+                right: 110%; /* Cruza toda la pantalla hacia la izquierda */
             }
-            28% { 
-                right: 35%; 
-                transform: scaleX(1) skewX(-10deg); /* Arremete a toda velocidad */
-            }
-            30% { 
-                right: 38%; 
-                transform: scaleX(1) scale(1.1); /* Choque físico en el centro */
-            }
-            35% { 
-                right: 25%; 
-                transform: scaleX(1) rotate(15deg); /* Queda aturdido hacia atrás */
-            }
-            60% {
-                right: 25%;
-                transform: scaleX(1) rotate(0deg); /* Se recupera */
-            }
-            100% { 
-                right: 5%; 
-                transform: scaleX(1); /* Vuelve a su lugar */
-            }
+        
         }
     </style>
 </head>
