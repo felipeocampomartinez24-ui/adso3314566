@@ -6,11 +6,11 @@
     <title>37-animations - Professional Combat Scene</title>
     <style>
         :root {
-            --combat-duration: 3.5s;
+            --combat-speed: 3.8s;
         }
 
         body {
-            background-color: #0f0f11;
+            background-color: #0b0b0d;
             color: #f5f5f7;
             font-family: system-ui, -apple-system, sans-serif;
             display: flex;
@@ -19,98 +19,113 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
+            overflow-x: hidden;
         }
 
         header {
             text-align: center;
-            margin-bottom: 1rem;
-            h1 { margin: 0; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; }
-            h2 { margin: 5px 0 0; font-size: 1rem; color: #86868b; font-weight: 400; }
+            margin-bottom: 1.5rem;
+            h1 { margin: 0; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(45deg, #ffb703, #fb8500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+            h2 { margin: 5px 0 0; font-size: 0.95rem; color: #6e6e73; font-weight: 400; }
         }
 
         section {
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             padding: 0 20px;
             box-sizing: border-box;
 
             div.jungle {
-                background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('/src/imgs/jungle (1).png') no-repeat center/cover;
-                border: 2px solid #333;
-                border-radius: 12px;
+                background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url('/src/imgs/jungle (1).png') no-repeat center/cover;
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 16px;
                 position: relative;
-                height: 480px;
+                height: 500px;
                 width: 100%;
                 overflow: hidden;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-                animation: stage-shake var(--combat-duration) cubic-bezier(.36,.07,.19,.97) infinite;
+                box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+                /* El escenario reacciona al golpe con físicas de vibración */
+                animation: stage-clash var(--combat-speed) cubic-bezier(.15,.85,.33,1) infinite;
 
                 img {
                     position: absolute;
-                    bottom: 40px;
-                    will-change: transform, bottom, left, right; /* Optimización de renderizado por GPU */
+                    bottom: 35px;
+                    will-change: transform, bottom, left, right, filter;
                 }
 
                 img.logo {
-                    top: 30px;
+                    top: 25px;
                     left: 50%;
                     bottom: auto; 
-                    width: 180px;
+                    width: 190px;
                     transform: translateX(-50%);
-                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+                    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+                    animation: logo-float 3s ease-in-out infinite;
                 }
 
                 img.dk {
-                    left: 10%;
-                    width: 150px;
+                    left: 8%;
+                    width: 155px;
                     transform-origin: bottom center;
-                    animation: dk-combat var(--combat-duration) infinite;
+                    animation: dk-moves var(--combat-speed) infinite;
                 }
 
                 img.rino {
-                    right: 10%;
-                    width: 135px;
+                    right: 8%;
+                    width: 140px;
                     transform-origin: bottom center;
-                    animation: rino-combat var(--combat-duration) infinite;
+                    /* Invertimos el eje X base porque el asset mira a la izquierda y atacará hacia la derecha */
+                    animation: rino-moves var(--combat-speed) infinite;
                 }
             }
         }
 
         /* ==========================================================================
-           KEYFRAMES PRO: Sincronización milimétrica basada en la física de partículas
+           LÍNEA DE TIEMPO DEL COMBATE PRO (Sincronización milimétrica al 30%)
            ========================================================================== */
 
-        /* Escenario: Absorbe el impacto en el frame exacto del golpe (30%) */
-        @keyframes stage-shake {
-            0%, 29%, 36%, 100% { transform: translate(0, 0); filter: brightness(1); }
-            30% { transform: translate(-8px, 5px); filter: brightness(1.3); }
-            31% { transform: translate(6px, -6px); }
-            32% { transform: translate(-5px, -3px); }
-            33% { transform: translate(4px, 4px); }
-            34% { transform: translate(-2px, -1px); }
-            35% { transform: translate(1px, 1px); }
+        /* 1. EFECTO DE IMPACTO EN EL ESCENARIO (Flash + Sacudida cinematográfica) */
+        @keyframes stage-clash {
+            0%, 29%, 38%, 100% { transform: translate(0, 0); filter: brightness(1) contrast(1); }
+            30% { transform: translate(-10px, 7px); filter: brightness(1.4) contrast(1.2); }
+            31% { transform: translate(10px, -7px); }
+            32% { transform: translate(-7px, -4px); }
+            33% { transform: translate(7px, 5px); }
+            34% { transform: translate(-4px, -2px); }
+            35% { transform: translate(3px, 2px); }
+            36% { transform: translate(-1px, -1px); }
         }
 
-        /* DK: Anticipación hacia atrás, parábola de salto (30%) e inercia de rebote */
-        @keyframes dk-combat {
-            0% { left: 10%; bottom: 40px; transform: scale(1) rotate(0deg); }
-            12% { left: 7%; bottom: 40px; transform: scaleX(0.95) scaleY(1.05) rotate(-8deg); } /* Anticipación */
-            28% { left: 34%; bottom: 160px; transform: scaleX(1.1) scaleY(0.9) rotate(20deg); } /* Vuelo (Vértice) */
-            30% { left: 38%; bottom: 45px; transform: scaleX(0.85) scaleY(1.2) rotate(-15deg); } /* IMPACTO masivo */
-            34% { left: 22%; bottom: 40px; transform: scaleX(1.1) scaleY(0.9) rotate(10deg); } /* Inercia hacia atrás */
-            45% { left: 12%; bottom: 40px; transform: scaleX(0.95) scaleY(1.05) rotate(-5deg); } /* Frenado */
-            55%, 100% { left: 10%; bottom: 40px; transform: scale(1) rotate(0deg); } /* Recuperación IDLE */
+        /* INTERFAZ: Flote sutil del logo */
+        @keyframes logo-float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-6px); }
         }
 
-        /* Rino: Carga lineal pesada en el suelo, colisión (30%) y deformación por aplastamiento */
-        @keyframes rino-combat {
-            0% { right: 10%; transform: scaleX(1) scaleY(1) skewX(0deg); }
-            10% { right: 7%; transform: scaleX(1.05) scaleY(0.95) skewX(5deg); } /* Toma impulso */
-            26% { right: 32%; transform: scaleX(0.95) scaleY(1.05) skewX(-15deg); } /* Carga máxima velocidad */
-            30% { right: 36%; transform: scaleX(1.3) scaleY(0.7) skewX(0deg); } /* IMPACTO: Compresión física */
-            35% { right: 20%; transform: scaleX(0.9) scaleY(1.1) rotate(18deg) skewX(10deg); } /* Rebote y desestabilización */
-            50% { right: 12%; transform: scaleX(1) scaleY(1) rotate(0deg); } /* Reajuste de pesadez */
-            60%, 100% { right: 10%; transform: scaleX(1) scaleY(1) skewX(0deg); } /* Recuperación IDLE */
+        /* 2. MECÁNICAS DE DONKEY KONG (Fase de salto ofensivo) */
+        @keyframes dk-moves {
+            0% { left: 8%; bottom: 35px; transform: scale(1) rotate(0deg); filter: brightness(1); }
+            10% { left: 5%; bottom: 35px; transform: scaleX(0.88) scaleY(1.1) rotate(-12deg); } /* Carga de energía / Anticipación hacia atrás */
+            24% { left: 22%; bottom: 180px; transform: scaleX(1.15) scaleY(0.85) rotate(25deg); } /* Vuelo: Máxima velocidad parabólica */
+            28% { left: 34%; bottom: 110px; transform: scaleX(1.2) scaleY(0.8) rotate(35deg); filter: brightness(1.2); } /* Descenso con puño cargado */
+            30% { left: 37%; bottom: 40px; transform: scaleX(0.75) scaleY(1.3) rotate(-15deg); filter: brightness(1.5); } /* IMPACTO: Compresión de fuerza severa */
+            33% { left: 25%; bottom: 35px; transform: scaleX(1.2) scaleY(0.8) rotate(15deg); } /* Inercia negativa: Empujado bruscamente hacia atrás */
+            42% { left: 14%; bottom: 35px; transform: scaleX(0.9) scaleY(1.1) rotate(-8deg); } /* Derrape y frenado en suelo */
+            52% { left: 8%; bottom: 35px; transform: scaleX(1.05) scaleY(0.95) rotate(0deg); } /* Amortiguación final */
+            62%, 100% { left: 8%; bottom: 35px; transform: scale(1) rotate(0deg); } /* Estado de guardia original */
+        }
+
+        /* 3. MECÁNICAS DEL RINOCERONTE (Fase de embestida pesada) */
+        @keyframes rino-moves {
+            0% { right: 8%; bottom: 35px; transform: scaleX(-1) scaleY(1) skewX(0deg); }
+            8% { right: 5%; bottom: 35px; transform: scaleX(-1.1) scaleY(0.9) skewX(-8deg); } /* Retroceso de pezuña (Toma impulso) */
+            24% { right: 24%; bottom: 35px; transform: scaleX(-0.85) scaleY(1.15) skewX(20deg); } /* Sprint balístico a ras de suelo */
+            28% { right: 33%; bottom: 35px; transform: scaleX(-0.8) scaleY(1.2) skewX(25deg); } /* Clava el cuerno para destrozar */
+            30% { right: 37%; bottom: 35px; transform: scaleX(-1.4) scaleY(0.6) skewX(0deg); } /* IMPACTO: Absorción del golpe de DK (Aplastamiento masivo) */
+            34% { right: 23%; bottom: 35px; transform: scaleX(-0.85) scaleY(1.15) rotate(-20deg) skewX(-15deg); } /* Latigazo cervical hacia atrás por la potencia */
+            46% { right: 12%; bottom: 35px; transform: scaleX(-1) scaleY(1) rotate(5deg); } /* Recuperación del peso muerto */
+            56% { right: 8%; bottom: 35px; transform: scaleX(-1) scaleY(0.95); } /* Reajuste de articulaciones */
+            66%, 100% { right: 8%; bottom: 35px; transform: scaleX(-1) scaleY(1) skewX(0deg); } /* Regreso al reposo */
         }
     </style>
 </head>
