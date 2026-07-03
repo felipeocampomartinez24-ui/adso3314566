@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanatsu no Taizai Layout</title>
+</head>
+<style>
+    main {
+        background-image: url(/src/imgs/fondo.webp);
+        border: 2px solid rgb(250, 250, 250);
+        min-height: 100dvh;
+        padding: 20px;
+        box-sizing: border-box;
+        background-size: cover;
+    }
+
+    .logo-top {
+        background-image: url(/src/imgs/longo_nanatsu.png); /* Ruta del logo superior */
+        background-repeat: no-repeat;
+
+        background-position: center;
+        background-size: contain;
+        width: 280px;
+        height: 140px;
+        margin: 1rem auto;
+    }
+
+    header {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    header a {
+        background: #17c5d8;
+        color: #131313;
+        font-size: 1.1rem;
+        font-family: Arial, sans-serif;
+        padding: 12px;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.4s ease-in;
+        width: 20%;
+        border: #ffffff 2px solid;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    header a:hover {
+        background: #33dae2;
+    }
+
+    .contenedor-principal {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        background-image: url(/src/imgs/01tex.png);
+        padding: 25px;
+        width: 100%;
+        box-sizing: border-box;
+        border: 2px solid #222;
+        
+    }
+
+    .cuadro {
+        width: 200px;
+        height: 155px;
+        border: #ffffff 2px solid;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Coloca aquí las imágenes individuales de los cuadros de arriba */
+    .cuadro-1 { background-image: url(/src/imgs/maliodas.webp); } 
+    .cuadro-2 { background-image: url(/src/imgs/ban.webp); } 
+    .cuadro-3 { background-image: url(/src/imgs/R.jpg ); } 
+
+    .texto {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        color: #f6f6f6;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .cuadro-contenido {
+        background-image: url(/src/imgs/01tex.png);
+        border: #ffffff 2px solid;
+        margin: 1.5rem auto;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        max-width: 95%;
+        box-sizing: border-box;
+    }
+
+    .personaje-left-icon {
+        box-shadow: #000000 2px 2px 5px;
+        width: 110px;
+        height: 150px;
+        flex-shrink: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+   
+
+    .sec-meliodas .personaje-left-icon { background-image: url(/src/imgs/maliodas.webp); }
+    
+    .sec-ban .personaje-left-icon { background-image: url(/src/imgs/ban.webp); }
+  
+    .sec-king .personaje-left-icon { background-image: url(/src/imgs/R.jpg); }
+    
+
+    .texto-descripcion {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #ffffff;
+        text-align: justify;
+        margin: 0;
+        flex: 1;
+    }
+
+    .texto-rojo {
+        color: #155d8d;
+        font-weight: bold;
+    }
+
+    .abajo {
+        background-image:url(/src/imgs/01tex.png);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+        padding: 20px 0px;
+        border: 2px solid #ffffff;
+    }
+
+    .menu a {
+        color: #333333;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.536);
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+    .menu a.active,
+    .menu a:hover {
+        color: #101e9d;
+        background-color: #ffffffa4;
+    }
+
+    .final-logo {
+        background-image: url(/src/imgs/longo_nanatsu.png); /* Ruta del logo final inferior */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 255px;
+        height: 184px;
+        flex-shrink: 0;
+    }
+
+    /* --- MEDIA QUERIES --- */
+
+    @media (max-width: 1024px) {
+        header {
+            flex-wrap: wrap;
+        }
+        header a {
+            width: 48%;
+            margin-bottom: 5px;
+        }
+        .contenedor-principal {
+            justify-content: center;
+        }
+        .cuadro {
+            width: 45%;
+            height: 180px;
+        }
+    }
+
+    @media (max-width: 780px) {
+        header a {
+            width: 100%;
+        }
+        .contenedor-principal {
+            flex-direction: column;
+            align-items: center;
+        }
+        .cuadro {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+        }
+        .cuadro-contenido {
+            flex-direction: column;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+</style>
+<body>
+    <main>
+        <div class="logo-top"></div>
+
+        <header>
+            <a class="home">MELIODAS</a>
+            <a class="nosotros">BAN</a>
+            <a class="portafolio">KING</a>
+            <a class="servicios">DIANE</a>
+            <a class="contact">ESCANOR</a>
+        </header>
+
+        <div class="contenedor-principal">
+            <div class="cuadro cuadro-1">
+                <span class="texto">Meliodas</span>
+            </div>
+            <div class="cuadro cuadro-2">
+                <span class="texto">Ban</span>
+            </div>
+            <div class="cuadro cuadro-3">
+                <span class="texto">King</span>
+            </div>
+        </div>
+
+        <section class="cuadro-contenido sec-meliodas">
+            <div class="personaje-left-icon"></div>
+            <p class="texto-descripcion">
+                Meliodas es el líder de los Siete Pecados Capitales y el pecado de la ira del dragón. A pesar de su apariencia infantil, posee un poder inmenso originario del Clan de los Demonios y es el dueño de la famosa taberna Boar Hat.
+            </p>
+            <div class="personaje-right-full"></div>
+        </section>
+
+        <section class="cuadro-contenido sec-ban">
+            <div class="personaje-left-icon"></div>
+            <p class="texto-descripcion">
+                Ban es el pecado de la avaricia del zorro. Conocido como Ban el Inmortal, obtuvo la eterna juventud tras beber de la Fuente de la Juventud en el Bosque del Rey Hada. Su lazo de amistad con Meliodas es inquebrantable.
+            </p>
+            <div class="personaje-right-full"></div>
+        </section>
+
+        <section class="cuadro-contenido sec-king">
+            <div class="personaje-left-icon"></div>
+            <p class="texto-descripcion texto-rojo">
+                King es el pecado de la pereza del oso y el Rey de las Hadas. Su verdadero nombre es Harlequin y protege a su pueblo controlando la lanza sagrada Chastiefol, la cual puede cambiar de forma en combate según sus necesidades.
+            </p>
+            <div class="personaje-right-full"></div>
+        </section>
+
+        <section class="abajo">
+            <div class="final-logo"></div>
+            <section class="sprite_final">
+                <section class="menu">
+                    <a class="active">MELIODAS</a>
+                    <a>BAN</a>
+                    <a>KING</a>
+                    <a>DIANE</a>
+                    <a>ESCANOR</a>
+                </section>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
