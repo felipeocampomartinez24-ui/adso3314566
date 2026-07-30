@@ -70,7 +70,20 @@
     const fruits=document.getElementsByTagName('li')
     const h4s =document.getElementsByTagName('h4')
     h4s[1].texconten =`there are${fruits.length}fruits`
-    h4s[1].innerHTML +=`la fruta final es${fruits[fruits.length-1]}fruits`
+    h4s[1].innerHTML +=` the last fruits is${fruits[fruits.length-1]}.texcontent`
+    h4s[1].innerHTML +=`the first fruits is  ${fruits[0]}.texcontent`
+
+    const ps = document.getElementsByClassName('paragraph')
+    ps[1].textContent  = 'new tex value'
+    ps[1].style.backgroundColor ='crimson'
+    ps[1].style.color ='white'
+    ps[1].style.padding = '0.4 rem'
+
+ // query selector para elegir dentro del contenido
+
+    const first = document.querySelector('figure.animal') 
+    first.style.backgroundColor = 'orange'
+     const animal
 //``
 
 </script>
