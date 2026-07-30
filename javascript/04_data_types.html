@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -34,40 +34,58 @@
             <path d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z"></path>
         </svg>
     </a>
-
+ <h1>04_data_types</h1>
+ 
     <section>
-            <h3>Type String:    <small class="type-string"></small></h3>
-            <h3>Type Number:    <small class="type-number"></small></h3>
-            <h3>Type Boolean:   <small class="type-boolean"></small></h3>
-            <h3>Type Null:      <small class="type-null"></small></h3>
-            <h3>Type Undefined: <small class="type-undefined"></small></h3>
-            <h3>Type Array:     <small class="type-array"></small></h3>
-            <h3>Type Object:    <small class="type-object"></small></h3>
-        </section>
+        <h3>Type String:    <small class="type-string"></small></h3>
+        <h3>Type Number:    <small class="type-number"></small></h3>
+        <h3>Type Boolean:   <small class="type-boolean"></small></h3>
+        <h3>Type Null:      <small class="type-null"></small></h3>
+        <h3>Type Undefined: <small class="type-undefined"></small></h3>
+        <h3>Type Array:     <small class="type-array"></small></h3>
+        <h3>Type Object:    <small class="type-object"></small></h3>
+    </section>
 
 <script>
     // type string
-     const tstring = document.querySelector('.type-string');
-     const message = ' hello js ';
-     tstring.textContent= `${message} -> length:${message.length} characters`;
-    
-     // type number
+    const tstring = document.querySelector('.type-string');
+    const message = ' hello js ';
+    tstring.textContent = `${message} -> length:${message.length} characters`;
 
-     const tnumber = document.querySelector('.type-number');
-     const num1 = '45';
+    // type number
+    const tnumber = document.querySelector('.type-number');
+    const num1 = '45';
+    const num2 = '12.4';
+    tnumber.textContent = `(45+12.4) -> ${parseInt(num1) + parseFloat(num2)}`;
 
-     const num2 =  '12.4';
+    // type bool
+    const tboolean = document.querySelector('.type-boolean'); // Corregido: .type-boolean
+    const istrue = (4 > 8);
+    tboolean.textContent = `(4>8) -> ${istrue}`; // Corregido: tboolean en minúscula
 
-     tnumber.textContent = `(45+12.4) -> ${parseInt(num1)+num2}`;
+    // type null
+    const tnull = document.querySelector('.type-null');
+    const isCreated = null;
+    tnull.textContent = `isCreated -> ${isCreated}`;
 
-     // type bool
+    // type undefined
+    const tundefined = document.querySelector('.type-undefined');
+    const isBinary = undefined;
+    tundefined.textContent = `isbinary -> ${isBinary}`;
 
-     const tboolean = document.querySelector('.type-bolean');
+    // TYPE ARRAY 
+    const tarray = document.querySelector('.type-array');
+    const landscapes = ['emoji', 'emoji', 'emoji', 'emoji'];
+    tarray.textContent = `Lansscapes -> ${landscapes}`;
 
-     const istrue = (4>8);
-     tBoolean.textContent = `(4>8) -> ${istrue}`
-
-    
+    // type object
+    const tobject = document.querySelector('.type-object'); // Corregido: document sin 'e' al final
+    const hashira = {
+        name: 'kyojuro rengoku',
+        type: 'fuego',
+        age: 20
+    };
+    tobject.textContent = `${hashira.name}, ${hashira.type}, ${hashira.age}`; // Agregado para renderizar el objeto en el elemento
 </script>
 </body>
 </html>
