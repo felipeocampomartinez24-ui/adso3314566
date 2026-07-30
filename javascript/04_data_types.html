@@ -50,6 +50,22 @@
      const tstring = document.querySelector('.type-string');
      const message = ' hello js ';
      tstring.textContent= `${message} -> length:${message.length} characters`;
+    
+     // type number
+
+     const tnumber = document.querySelector('.type-number');
+     const num1 = '45';
+
+     const num2 =  '12.4';
+
+     tnumber.textContent = `(45+12.4) -> ${parseInt(num1)+num2}`;
+
+     // type bool
+
+     const tboolean = document.querySelector('.type-bolean');
+
+     const istrue = (4>8);
+     tBoolean.textContent = `(4>8) -> ${istrue}`
 
     
 </script>
