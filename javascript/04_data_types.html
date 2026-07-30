@@ -1,0 +1,57 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-comments | JavaScript</title>
+    <link rel="stylesheet" href="../../src/css/styles.css">
+    
+    <style>
+        section {
+            ul {
+                padding: 0;
+            }
+            ul li,
+            figure.animal {
+                background-color: #0006;
+                border-radius: 2px;
+                height: 25px;
+                margin: 2px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25px;
+                zoom: 2.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Botón para regresar al menú principal de JS -->
+    <a href="./index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z"></path>
+        </svg>
+    </a>
+
+    <section>
+            <h3>Type String:    <small class="type-string"></small></h3>
+            <h3>Type Number:    <small class="type-number"></small></h3>
+            <h3>Type Boolean:   <small class="type-boolean"></small></h3>
+            <h3>Type Null:      <small class="type-null"></small></h3>
+            <h3>Type Undefined: <small class="type-undefined"></small></h3>
+            <h3>Type Array:     <small class="type-array"></small></h3>
+            <h3>Type Object:    <small class="type-object"></small></h3>
+        </section>
+
+<script>
+    // type string
+     const tstring = document.querySelector('.type-string');
+     const message = ' hello js ';
+     tstring.textContent= `${message} -> length:${message.length} characters`;
+
+    
+</script>
+</body>
+</html>
