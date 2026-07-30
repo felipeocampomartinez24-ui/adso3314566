@@ -80,47 +80,80 @@
         </section>
     </main>
 
-    <script>
-        //elements
-        const pkname = document.querySelector('.pk-name');
-        const pkhp = document.querySelector('.pk-hp'); // Corregido: pkhp (coincide con tu uso en el método)
-        const pkimage = document.querySelector('.pk-image');
-        //btns
-        const btnattack = document.querySelector('.btn-attack');
-        const btnfeed = document.querySelector('.btn-feed');
-        
-        // object
-        const pokemon = {
-            //atributos
-            name: 'snorlax',
-            type: 'normal',
-            hp: 100,
-            Image: 'img_j.s/snorlax-sprite.png',
-            status: 'alive',
+    
+        <script>
+    // Elements
+    const pkname = document.querySelector('.pk-name');
+    const pkhp = document.querySelector('.pk-hp');
+    const pkimage = document.querySelector('.pk-image');
+    
+    // Buttons
+    const btnattack = document.querySelector('.btn-attack');
+    const btnfeed = document.querySelector('.btn-feed');
+    
+    // Object
+    const pokemon = {
+        // Atributos
+        name: 'snorlax',
+        type: 'normal',
+        hp: 100,
+        Image: 'img_j.s/snorlax-sprite.png',
+        status: 'alive',
 
-            //methods
-            render: function () { // Corregido: sintaxis de método (render: function)
-                pkname.innerHTML = `${this.name}<small>[${this.type}]</small>`;
-                pkimage.style.backgroundImage = `url(${this.Image})`;
-            },
+        // Métodos
+        render: function () {
+            pkname.innerHTML = `${this.name} <small>[${this.type}]</small>`;
+            pkimage.style.backgroundImage = `url(${this.Image})`;
+        },
 
-            updateHp: function(fx) { // Corregido: sintaxis de método (updateHp: function)
-                pkhp.innerHTML = `HP: ${this.hp}`;
-                pkimage.classList.add(this.status, fx); // Corregido: classList con 'L' mayúscula y this.status sin comillas
+        updateHp: function(fx) {
+            pkhp.innerHTML = `HP: ${this.hp}`;
+            
+            // Limpia estados anteriores para que la imagen cambie correctamente según el CSS
+            pkimage.classList.remove('alive', 'attack', 'feed', 'dead');
+            
+            // Aplica el estado actual y la animación
+            pkimage.classList.add(this.status, fx);
+        },
+
+        // Método para alimentar (suma 25 HP)
+        feed: function() {
+            if (this.hp > 0) {
+                this.hp += 25;
+                this.status = 'feed';
+                this.updateHp('animate__bounceIn'); // Animación opcional con Animate.css
             }
-        };
+        },
 
-        // Lo que faltaba para que funcione en pantalla:
-        pokemon.render();
-        pokemon.updateHp('alive');
+        // Método para atacar (resta HP)
+        attack: function() {
+            if (this.hp > 0) {
+                this.hp -= 20;
+                if (this.hp <= 0) {
+                    this.hp = 0;
+                    this.status = 'dead';
+                } else {
+                    this.status = 'attack';
+                }
+                this.updateHp('animate__shakeX');
+            }
+        }
+    };
 
-        //events
+    // Inicialización en pantalla
+    pokemon.render();
+    pokemon.updateHp('animate__fadeIn');
 
-        btn.feed.addventlistener('click',function(){
-            pokemon.feed();
+    // Eventos
+    btnfeed.addEventListener('click', function() {
+        pokemon.feed();
+    });
 
-        })
+    btnattack.addEventListener('click', function() {
+        pokemon.attack();
+    });
+</script>
 
-    </script>
+    
 </body>
 </html>
