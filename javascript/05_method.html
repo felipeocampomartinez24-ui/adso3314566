@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>05_method</title>
     <link rel="stylesheet" href="css.js/animate.min.css">
+    <link rel="stylesheet" href="/javascript/css.js/styles.css">
     <style>
         main section h3.pk-name {
             font-size: 2rem;
@@ -81,8 +82,9 @@
     <script>
         //elements
         const pkname = document.querySelector('.pk-name');
-        const pkhp = document.querySelector('.pk-hp'); // Corregido: pkhp (coincide con tu uso en el método)
+        const pkhp = document.querySelector('.pk-hp');
         const pkimage = document.querySelector('.pk-image');
+        
         //btns
         const btnattack = document.querySelector('.btn-attack');
         const btnfeed = document.querySelector('.btn-feed');
@@ -93,32 +95,45 @@
             name: 'snorlax',
             type: 'normal',
             hp: 100,
-            Image: '/img_',
+            Image: '/img.js/snorlax-sprite.png', // Ajusta la ruta correcta de tu imagen si es necesario
             status: 'alive',
 
             //methods
-            render: function () { // Corregido: sintaxis de método (render: function)
+            render: function () {
                 pkname.innerHTML = `${this.name}<small>[${this.type}]</small>`;
                 pkimage.style.backgroundImage = `url(${this.Image})`;
             },
 
-            updateHp: function(fx) { // Corregido: sintaxis de método (updateHp: function)
+            updateHp: function(fx) {
                 pkhp.innerHTML = `HP: ${this.hp}`;
-                pkimage.classList.add(this.status, fx); // Corregido: classList con 'L' mayúscula y this.status sin comillas
+                pkimage.classList.add(this.status, fx);
+                this.updatestatus(fx); // Limpia la animación automáticamente
+            },
+
+            feed: function() {
+                if (this.hp < 200) {
+                    this.hp += 25;
+                }
+                this.status = 'feed';
+                pkimage.classList.remove('alive', 'attack', 'dead'); // Corregido: 'attack' (antes 'attact')
+                this.updateHp('animate__rubberBand');
+            },
+
+            updatestatus: function(fx) { // Corregido: ahora este método está DENTRO del objeto
+                setTimeout(() => {
+                    pkimage.classList.remove(fx);
+                }, 1200);
             }
         };
 
-        // Lo que faltaba para que funcione en pantalla:
+        // Renderizado e inicialización
         pokemon.render();
         pokemon.updateHp('alive');
 
         //events
-
-        btn.feed.addventlistener('click',function(){
+        btnfeed.addEventListener('click', function() { // Corregido: btnfeed.addEventListener (antes btn.feed.addventlistener)
             pokemon.feed();
-
-        })
-
+        });
     </script>
 </body>
 </html>
