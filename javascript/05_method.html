@@ -80,8 +80,7 @@
         </section>
     </main>
 
-    
-        <script>
+    <script>
     // Elements
     const pkname = document.querySelector('.pk-name');
     const pkhp = document.querySelector('.pk-hp');
@@ -118,7 +117,7 @@
 
         // Método para alimentar (suma 25 HP)
         feed: function() {
-            if (this.hp >200) {
+            if (this.hp > 0) {
                 this.hp += 25;
                 this.status = 'feed';
                 this.updateHp('animate__bounceIn'); // Animación opcional con Animate.css
@@ -153,7 +152,6 @@
         pokemon.attack();
     });
 </script>
-
     
 </body>
 </html>
