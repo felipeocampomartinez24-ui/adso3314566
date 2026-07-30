@@ -10,7 +10,7 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: #f0f0f0;
+    background-image:url(/javascript/img_j.s/fondo.jpg);
     border-radius: 50%;
     transition: background 0.2s ease;
 }
