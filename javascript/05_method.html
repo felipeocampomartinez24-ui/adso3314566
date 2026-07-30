@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css.js/animate.min.css">
-    <link rel="stylesheet" href="/javascript/css.js/styles.css">
-    
+    <title>05-methods-object</title>
+    <link rel="stylesheet" href="/04-javascript/css/js.css">
+    <link rel="stylesheet" href="css/animate.min.css">
     <style>
         main section h3.pk-name {
             font-size: 2rem;
@@ -61,98 +61,127 @@
                 &:hover {
                     transform: scale(1.2);
                 }
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                    transform: none;
+                }
             }
         }
     </style>
 </head>
+
 <body>
+    <a href="/04-javascript/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z">
+            </path>
+        </svg>
+    </a>
     <main>
-        <h1> 05_method </h1>
-        <h2></h2>
+        <header>
+            <h1 id="h1_1">05 Methods Object</h1>
+            <h2>Use methods to interact with objects.</h2>
+        </header>
         <section>
             <h3 class="pk-name"></h3>
             <h4 class="pk-hp"></h4>
             <figure class="pk-image animate__animated"></figure>
             <div class="actions">
-                <button class="btn-attack">Attack</button>
-                <button class="btn-feed">Feed</button>
+                <button class="btn-attack">Attack 👊🏻</button>
+                <button class="btn-feed">Feed 🥞</button>
             </div>
         </section>
     </main>
-
     <script>
-    // Elements
-    const pkname = document.querySelector('.pk-name');
-    const pkhp = document.querySelector('.pk-hp');
-    const pkimage = document.querySelector('.pk-image');
-    
-    // Buttons
-    const btnattack = document.querySelector('.btn-attack');
-    const btnfeed = document.querySelector('.btn-feed');
-    
-    // Object
-    const pokemon = {
-        // Atributos
-        name: 'snorlax',
-        type: 'normal',
-        hp: 100,
-        Image: 'img_j.s/snorlax-sprite.png',
-        status: 'alive',
+        const pkName = document.querySelector('.pk-name');
+        const pkHp = document.querySelector('.pk-hp');
+        const pkImage = document.querySelector('.pk-image');
 
-        // Métodos
-        render: function () {
-            pkname.innerHTML = `${this.name} <small>[${this.type}]</small>`;
-            pkimage.style.backgroundImage = `url(${this.Image})`;
-        },
+        const btnAttack = document.querySelector('.btn-attack');
+        const btnFeed = document.querySelector('.btn-feed');
 
-        updateHp: function(fx) {
-            pkhp.innerHTML = `HP: ${this.hp}`;
-            
-            // Limpia estados anteriores para que la imagen cambie correctamente según el CSS
-            pkimage.classList.remove('alive', 'attack', 'feed', 'dead');
-            
-            // Aplica el estado actual y la animación
-            pkimage.classList.add(this.status, fx);
-        },
+        //Attributes
+        const pokemon = {
+            name: 'Snorlax',
+            type: 'Normal',
+            hp: 100,
+            image: 'imgs/snorlax-sprite.png',
+            status: 'alive',
+            //Methods
+            render: function() {
+                pkName.innerHTML = `${this.name} <small>${this.type}</small>`;
+                pkImage.style.backgroundImage = `url(${this.image})`;
+                this.updateHp('animate__rubberBand');
+            },
 
-        // Método para alimentar (suma 25 HP)
-        feed: function() {
-            if (this.hp > 0) {
-                this.hp += 25;
-                this.status = 'feed';
-                this.updateHp('animate__bounceIn'); // Animación opcional con Animate.css
-            }
-        },
-
-        // Método para atacar (resta HP)
-        attack: function() {
-            if (this.hp > 0) {
-                this.hp -= 20;
-                if (this.hp <= 0) {
-                    this.hp = 0;
-                    this.status = 'dead';
-                } else {
-                    this.status = 'attack';
+            updateHp: function(fx) {
+                pkHp.innerHTML = `HP: ${this.hp}`;
+                pkImage.classList.add(this.status);
+                if (fx) {
+                    pkImage.classList.add(fx);
                 }
-                this.updateHp('animate__shakeX');
+                this.updateStatus();
+            },
+
+            disableButtons: function() {
+                btnAttack.disabled = true;
+                btnFeed.disabled = true;
+                setTimeout(() => {
+                    if (this.hp > 0) {
+                        btnAttack.disabled = false;
+                        btnFeed.disabled = false;
+                    }
+                }, 1200);
+            },
+
+            feed: function() {
+                if(this.hp > 0 && this.hp < 200){
+                    this.disableButtons();
+                    this.hp += 25;
+                    this.status = 'feed';
+                    pkImage.classList.remove('alive', 'attack', 'dead');
+                    this.updateHp('animate__rubberBand');
+                }
+            },
+            attack: function() {
+                if(this.hp > 0) {
+                    this.disableButtons();
+                    this.hp -= 25;
+                    
+                    if (this.hp <= 0) {
+                        this.hp = 0;
+                        this.status = 'dead';
+                        pkImage.classList.remove('alive', 'attack', 'feed');
+                        this.updateHp('animate__shakeX');
+                        btnAttack.disabled = true;
+                        btnFeed.disabled = true;
+                    } else {
+                        this.status = 'attack';
+                        pkImage.classList.remove('alive', 'feed', 'dead');
+                        this.updateHp('animate__rubberBand');
+                    }
+                }
+            },
+
+            updateStatus: function(){
+                setTimeout(() => {
+                    pkImage.classList.remove('animate__rubberBand', 'animate__shakeX');
+                }, 1200);
             }
-        }
-    };
+        };
 
-    // Inicialización en pantalla
-    pokemon.render();
-    pokemon.updateHp('animate__fadeIn');
+        pokemon.render();
 
-    // Eventos
-    
-    btnfeed.addEventListener('click', function() {
-        pokemon.feed();
-    });
-
-    btnattack.addEventListener('click', function() {
-        pokemon.attack();
-    });
-</script>
-    
+        // Events
+        btnFeed.addEventListener('click', function() {
+            pokemon.feed();
+        });
+        btnAttack.addEventListener('click', function() {
+            pokemon.attack();
+        });
+    </script>
 </body>
+
 </html>
