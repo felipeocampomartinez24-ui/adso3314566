@@ -118,7 +118,7 @@
 
         // Método para alimentar (suma 25 HP)
         feed: function() {
-            if (this.hp > 0) {
+            if (this.hp >200) {
                 this.hp += 25;
                 this.status = 'feed';
                 this.updateHp('animate__bounceIn'); // Animación opcional con Animate.css
