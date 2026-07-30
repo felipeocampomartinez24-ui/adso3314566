@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>02-comments | JavaScript</title>
-    <link rel="stylesheet" href="">
     
-    <style>
-       
-    </style>
     <style>
         section {
             ul {
@@ -28,7 +24,6 @@
             }
         }
     </style>
-    </style>
 </head>
 
 <body>
@@ -40,62 +35,54 @@
     </a>
 
     <section>
-            <h3>Get Element By Id:</h3>
-            <h4 id="year"></h4>
-            <h3>Get Elements By Tag Name:</h3>
-            <ul>
-                <li>🍎</li>
-                <li>🫐</li>
-                <li>🍊</li>
-                <li>🍒</li>
-            </ul>
-            <h4></h4>
-            <h3>Get Elements By Class Name</h3>
-            <p class="paragraph">Lorem ipsum dolor</p>
-            <p class="paragraph">Lorem ipsum dolor</p>
-            <p class="paragraph">Lorem ipsum dolor</p>
-            <h3>Query Selector & Query Selector All</h3>
-            <figure class="animal first">🦊</figure>
-            <figure class="animal">🐼</figure>
-            <figure class="animal">🐷</figure>
-        </section>
+        <h3>Get Element By Id:</h3>
+        <h4 id="year"></h4>
+        <h3>Get Elements By Tag Name:</h3>
+        <ul>
+            <li>🍎</li>
+            <li>🫐</li>
+            <li>🍊</li>
+            <li>🍒</li>
+        </ul>
+        <h4></h4>
+        <h3>Get Elements By Class Name</h3>
+        <p class="paragraph">Lorem ipsum dolor</p>
+        <p class="paragraph">Lorem ipsum dolor</p>
+        <p class="paragraph">Lorem ipsum dolor</p>
+        <h3>Query Selector & Query Selector All</h3>
+        <figure class="animal first">🦊</figure>
+        <figure class="animal">🐼</figure>
+        <figure class="animal">🐷</figure>
+    </section>
 
 <script>
-    //get elments
+    // Get Element By Id
+    const year = document.getElementById('year');
+    const ndate = new Date();
+    year.textContent = `${ndate.getFullYear()}`;
 
-    const year = document.getElementById ('year');
-    const ndate= new date;
-    year.textContent `${ndate.getFullyear()}`;
-    // get elemnts by tagname
-    const fruits=document.getElementsByTagName('li')
-    const h4s =document.getElementsByTagName('h4')
-    h4s[1].texconten =`there are${fruits.length}fruits`
-    h4s[1].innerHTML +=` the last fruits is${fruits[fruits.length-1]}.texcontent`
-    h4s[1].innerHTML +=`the first fruits is  ${fruits[0]}.texcontent`
+    // Get Elements By Tag Name
+    const fruits = document.getElementsByTagName('li');
+    const h4s = document.getElementsByTagName('h4');
+    h4s[1].textContent = `There are ${fruits.length} fruits. `;
+    h4s[1].innerHTML += `The last fruit is ${fruits[fruits.length - 1].textContent}. `;
+    h4s[1].innerHTML += `The first fruit is ${fruits[0].textContent}.`;
 
-    const ps = document.getElementsByClassName('paragraph')
-    ps[1].textContent  = 'new tex value'
-    ps[1].style.backgroundColor ='crimson'
-    ps[1].style.color ='white'
-    ps[1].style.padding = '0.4 rem'
+    // Get Elements By Class Name
+    const ps = document.getElementsByClassName('paragraph');
+    ps[1].textContent = 'New text value';
+    ps[1].style.backgroundColor = 'crimson';
+    ps[1].style.color = 'white';
+    ps[1].style.padding = '0.4rem';
 
- // query selector para elegir dentro del contenido
+    // Query Selector & Query Selector All
+    const first = document.querySelector('figure.animal');
+    first.style.backgroundColor = 'orange';
 
-    const first = document.querySelector('figure.animal') 
-    first.style.backgroundColor = 'orange'
-     const animals = document.querySelectorall('figure')
-    //animals[1].style.borderRadius = '50%'
-    animals[1].style.borderRadius = '50%'
-    animals[1].style.borderRadius = '50%'
-
-     animals.forEach(element => {
-        element.style.borderRadius ='50%'
-        
-     });
-//``
-
+    const animals = document.querySelectorAll('figure');
+    animals.forEach(element => {
+        element.style.borderRadius = '50%';
+    });
 </script>
-
-    
 </body>
 </html>
