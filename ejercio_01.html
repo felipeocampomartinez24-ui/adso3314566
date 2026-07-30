@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-write | JavaScript</title>
+    <link rel="stylesheet" href="../../src/css/styles.css">
+    
+    <style>
+        /* Reset y variables base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* Botón flotante para regresar */
+        .btn-home {
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            background-color: #f7df1e; /* Color JS */
+            border-radius: 50%;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-home:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estructura general de main y header */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #333;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #f7df1e;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            color: #aaa;
+            font-weight: normal;
+        }
+
+        header img {
+            width: 50px;
+            height: auto;
+        }
+
+        /* Sección de contenido para las prácticas individuales */
+        .content {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Botón para regresar al menú principal de JS -->
+    <a href="./index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z"></path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>01-write</h1>
+            <h2>Escribir y ejecutar código en JS</h2>
+        </header>
+
+        <section class="content">
+            <script>
+                document.write("<h3>Bienvenido a JavaScript</h3>");
+            </script>
+
+            <p id="message"></p>
+        </section>
+    </main>
+
+    <!-- Script de interacción con el DOM al final del body -->
+    <script>
+        const message = document.getElementById("message"); 
+        const string = 'amazing';
+
+        // Modificando el contenido del párrafo
+        message.innerHTML = "<strong>We love </strong>";
+        message.innerText += 'JavaScript ';
+        message.textContent += `is ${string}!`;
+
+        // Output en consola
+        const pokemones = ['Pikachu', 'Charmander', 'Bulbasaur', 'Squirtle'];
+        console.clear();
+        console.log('This is a console message');
+        console.log(`2**4 = ${2**4}`);
+        console.table(pokemones);
+    </script>
+</body>
+</html>
