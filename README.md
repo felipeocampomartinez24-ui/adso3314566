@@ -1,6 +1,6 @@
 # adso3314566
 public repository ADSO 3314566
-## analisis y desarrolo de sofware
+## analisis y desarrollo de sofware
 
 ## centro de procesos industriales y construccion
 
