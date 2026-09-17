@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/emmet.css">
     <title>AutoLux - Vehicle Object</title>
-     <a href="/javascript/index_javascript.html" class="btn-home">
+    <a href="/javascript/index_javascript.html" class="btn-home">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
             <path
                 d="M184,72H128V32a8,8,0,0,0-13.66-5.66l-96,96a8,8,0,0,0,0,11.32l96,96A8,8,0,0,0,128,224V184h56a8,8,0,0,0,8-8V80A8,8,0,0,0,184,72Zm-8,96H120a8,8,0,0,0-8,8v28.69L35.31,128,112,51.31V80a8,8,0,0,0,8,8h56Zm48-88v96a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0Z">
@@ -27,9 +28,10 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            transition: background-color 0.3s ease;
         }
 
-        /* --- CONTENEDOR PRINCIPAL --- */
+        /* --- CONTENEDOR PRINCIPAL (MODO OSCURO POR DEFECTO) --- */
         div.vehicle {
             width: 350px;
             background-color: #161b22;
@@ -41,24 +43,42 @@
             color: #ffffff;
             border: 1px solid #21262d;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         /* --- MODO CLARO --- */
         div.vehicle.light {
-            background-color: #eaf0f6;
+            background-color: #f0f4f8;
             color: #161b22;
             border-color: #cbd5e1;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
 
-            .logo-box, .btn-mode, .model-badge, .car-card {
-                background-color: #ffffff;
-                border-color: #cbd5e1;
-                color: #161b22;
-            }
+        div.vehicle.light .logo-box,
+        div.vehicle.light .btn-mode,
+        div.vehicle.light .model-badge,
+        div.vehicle.light .car-card {
+            background-color: #ffffff;
+            border-color: #cbd5e1;
+            color: #161b22;
+        }
 
-            .nav-arrow {
-                color: #161b22;
-            }
+        div.vehicle.light .nav-arrow {
+            color: #161b22;
+        }
+
+        div.vehicle.light .stage-container {
+            border-color: #cbd5e1;
+        }
+
+        div.vehicle .stage-bg-light {
+            display: none;
+        }
+        div.vehicle.light .stage-bg-dark {
+            display: none;
+        }
+        div.vehicle.light .stage-bg-light {
+            display: block;
         }
 
         /* --- HEADER --- */
@@ -79,6 +99,7 @@
             flex-grow: 1;
             height: 50px;
             border: 1px solid #21262d;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .logo-box img {
@@ -97,7 +118,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .btn-mode img {
@@ -146,6 +167,7 @@
             font-weight: bold;
             letter-spacing: 1.5px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         /* --- GALERÍA FERRARI --- */
@@ -168,7 +190,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease, background-color 0.3s ease;
         }
 
         .car-card.active {
@@ -195,23 +217,67 @@
             align-items: flex-end;
             justify-content: center;
             padding-bottom: 15px;
+            perspective: 1000px;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .stage-bg-city {
             position: absolute;
             top: 0;
+            left: 0;
             width: 100%;
-            height: 110px;
+            height: 100%;
             object-fit: cover;
+            z-index: 1;
+        }
+
+        .stage-bg-dark {
+            opacity: 0.75;
+        }
+
+        .stage-bg-light {
             opacity: 0.85;
         }
 
+        /* --- PLATAFORMA GIRATORIA --- */
+        .stage-platform {
+            position: absolute;
+            bottom: 8px;
+            width: 220px;
+            height: 70px;
+            object-fit: contain;
+            z-index: 1.5;
+            opacity: 0.9;
+            transform: rotateX(65deg);
+            animation: girarPlataforma 4s linear infinite;
+        }
+
+        @keyframes girarPlataforma {
+            from {
+                transform: rotateX(65deg) rotateZ(0deg);
+            }
+            to {
+                transform: rotateX(65deg) rotateZ(360deg);
+            }
+        }
+
+        /* --- CARRO PRINCIPAL --- */
         .stage-car {
             width: 140px;
             height: auto;
             object-fit: contain;
             z-index: 2;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            animation: girarVertical 4s linear infinite;
+        }
+
+        @keyframes girarVertical {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
         }
 
         /* --- BOTONERA DE CONTROL --- */
@@ -257,7 +323,7 @@
 
     <div class="vehicle" id="vehicleApp">
 
-        <!-- 1. HEADER CON LOGO Y BOTÓN DE MODO -->
+        <!-- 1. HEADER -->
         <header class="header-top">
             <div class="logo-box">
                 <img src="/imgs/logo_autolux.svg" alt="AutoLux">
@@ -267,7 +333,7 @@
             </button>
         </header>
 
-        <!-- 2. NAVEGACIÓN MODELOS -->
+        <!-- 2. NAVEGADOR MODELOS -->
         <div class="model-selector">
             <button class="nav-arrow" id="btnPrev">&lt; PREV</button>
             <div class="model-badge" id="modelBadge">288 GTO</div>
@@ -292,7 +358,16 @@
 
         <!-- 4. ESCENARIO CENTRAL -->
         <div class="stage-container">
-            <img src="/imgs/image 10.svg" alt="Fondo Ciudad" class="stage-bg-city">
+            <!-- Fondo para el Modo Oscuro -->
+            <img src="/javascript/img_j.s/fondo_png.jpg" alt="Fondo Ciudad Oscuro" class="stage-bg-city stage-bg-dark">
+            
+            <!-- Fondo para el Modo Claro -->
+            <img src="/javascript/img_j.s/fondo_claro.jpg" alt="Fondo Ciudad Claro" class="stage-bg-city stage-bg-light">
+
+            <!-- PLATAFORMA GIRATORIA DEBAJO DEL CARRO -->
+            <img src="/javascript/img_j.s/plataforma.png" alt="Plataforma giratoria" class="stage-platform" id="stagePlatform">
+
+            <!-- Carro Principal -->
             <img src="/imgs/ferrari_rojo.svg" alt="Ferrari Principal" class="stage-car" id="mainCarDisplay">
         </div>
 
@@ -322,58 +397,88 @@
 
     </div>
 
-    <!-- JAVASCRIPT: FUNCIONALIDAD DE NAVEGACIÓN DE MODELOS -->
+    <!-- JAVASCRIPT -->
     <script>
         const vehicleApp = document.getElementById('vehicleApp');
         const btnMode = document.getElementById('btnMode');
-        
-        // Elementos de navegación e interfaz
         const btnPrev = document.getElementById('btnPrev');
         const btnNext = document.getElementById('btnNext');
         const modelBadge = document.getElementById('modelBadge');
         const mainCarDisplay = document.getElementById('mainCarDisplay');
+        const stagePlatform = document.getElementById('stagePlatform');
         const carCards = document.querySelectorAll('.car-card');
 
-        // Base de datos de los modelos Ferrari solicitados
+        const btnOn = document.getElementById('btnOn');
+        const btnStop = document.getElementById('btnStop');
+        const btnOff = document.getElementById('btnOff');
+        const btnBack = document.getElementById('btnBack');
+
         const ferrariModels = [
             { name: "288 GTO", image: "/imgs/ferrari_rojo.svg" },
-            { name: "F40", image: "/imgs/ferrari_rojo.svg" },
-            { name: "F50", image: "/imgs/ferrari_3.svg" },
-            { name: "Enzo", image: "/imgs/ferrari_rojo.svg" },
-            { name: "LaFerrari", image: "/imgs/ferrari_rojo.svg" },
-            { name: "F80", image: "/imgs/ferrari_3.svg" }
+            { name: "F40", image: "/imgs/ferrarri_azul.svg" },
+            { name: "F50", image: "/imgs/ferrari_3.svg" }
         ];
 
         let currentIndex = 0;
 
-        // Función para actualizar la interfaz según el índice actual
         function updateVehicleDisplay() {
             const currentModel = ferrariModels[currentIndex];
-            
-            // Actualizar el texto del badge superior
             modelBadge.textContent = currentModel.name;
-            
-            // Actualizar la imagen central del escenario
             mainCarDisplay.src = currentModel.image;
             mainCarDisplay.alt = currentModel.name;
 
-            // Opcional: Actualizar las 3 tarjetas de la galería visualmente si deseas reflejar un segmento
-            // (Aquí puedes ajustar la lógica de las miniaturas según tus archivos específicos)
+            carCards.forEach((card, idx) => {
+                if (idx === currentIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
         }
 
-        // Evento botón NEXT
         btnNext.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % ferrariModels.length; // Cicla al inicio si llega al final
+            currentIndex = (currentIndex + 1) % ferrariModels.length;
             updateVehicleDisplay();
         });
 
-        // Evento botón PREV
         btnPrev.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + ferrariModels.length) % ferrariModels.length; // Cicla al final si está en el inicio
+            currentIndex = (currentIndex - 1 + ferrariModels.length) % ferrariModels.length;
             updateVehicleDisplay();
         });
 
-        // Funcionalidad de Modo Claro / Oscuro
+        carCards.forEach((card) => {
+            card.addEventListener('click', () => {
+                const index = parseInt(card.getAttribute('data-index'));
+                currentIndex = index;
+                updateVehicleDisplay();
+            });
+        });
+
+        // Controles sincronizados para el carro y la plataforma
+        btnOn.addEventListener('click', () => {
+            mainCarDisplay.style.animationPlayState = 'running';
+            stagePlatform.style.animationPlayState = 'running';
+            mainCarDisplay.style.filter = 'brightness(1)';
+            stagePlatform.style.filter = 'brightness(1)';
+        });
+
+        btnStop.addEventListener('click', () => {
+            mainCarDisplay.style.animationPlayState = 'paused';
+            stagePlatform.style.animationPlayState = 'paused';
+        });
+
+        btnOff.addEventListener('click', () => {
+            mainCarDisplay.style.animationPlayState = 'paused';
+            stagePlatform.style.animationPlayState = 'paused';
+            mainCarDisplay.style.filter = 'brightness(0.3)';
+            stagePlatform.style.filter = 'brightness(0.3)';
+        });
+
+        btnBack.addEventListener('click', () => {
+            window.history.back();
+        });
+
+        // Alternar Modo Claro / Oscuro
         btnMode.addEventListener('click', () => {
             vehicleApp.classList.toggle('light');
         });

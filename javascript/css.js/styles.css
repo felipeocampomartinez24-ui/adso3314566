@@ -45,10 +45,13 @@ body {
 }
 
 main {
-    width: 100%;
-    max-width: 800px;
-    padding: 2rem;
-     background-image:url(/javascript/img_j.s/fondo.jpg);
+   background-size: cover;          /* Cubre todo el espacio sin deformarse */
+    background-position: center;     /* Centra la imagen perfectamente */
+    background-repeat: no-repeat;    /* Evita que la imagen se repita en mosaico */
+    
+    /* Opcional: bordes redondeados y sombra sutil para darle aspecto de tarjeta moderna */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
     h1 {
         font-size: 3.4rem;
