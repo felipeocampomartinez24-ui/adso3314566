@@ -205,7 +205,7 @@
             margin-bottom: 4px;
         }
 
-        /* --- ESCENARIO PRINCIPAL --- */
+        /* --- ESCENARIO PRINCIPAL CON LUCES DINÁMICAS --- */
         .stage-container {
             position: relative;
             height: 190px;
@@ -218,7 +218,48 @@
             justify-content: center;
             padding-bottom: 15px;
             perspective: 1000px;
-            transition: background 0.3s ease, border-color 0.3s ease;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.5s ease;
+        }
+
+        .stage-container.active-lights {
+            box-shadow: inset 0 0 20px rgba(30, 144, 255, 0.3);
+            animation: pulseLights 3s infinite alternate;
+        }
+
+        @keyframes pulseLights {
+            0% { border-color: #21262d; box-shadow: inset 0 0 10px rgba(30, 144, 255, 0.2); }
+            100% { border-color: #1e90ff; box-shadow: inset 0 0 25px rgba(30, 144, 255, 0.6); }
+        }
+
+        /* --- LUCES LATERALES NUEVAS (IZQUIERDA Y DERECHA) --- */
+        .stage-light-left,
+        .stage-light-right {
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            z-index: 1.8;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .stage-light-left {
+            left: 0;
+            background: linear-gradient(to right, rgba(30, 144, 255, 0.6), transparent);
+        }
+
+        .stage-light-right {
+            right: 0;
+            background: linear-gradient(to left, rgba(236, 204, 104, 0.6), transparent);
+        }
+
+        .stage-container.show-light-left .stage-light-left {
+            opacity: 1;
+        }
+
+        .stage-container.show-light-right .stage-light-right {
+            opacity: 1;
         }
 
         .stage-bg-city {
@@ -250,15 +291,12 @@
             opacity: 0.9;
             transform: rotateX(65deg);
             animation: girarPlataforma 4s linear infinite;
+            animation-play-state: paused;
         }
 
         @keyframes girarPlataforma {
-            from {
-                transform: rotateX(65deg) rotateZ(0deg);
-            }
-            to {
-                transform: rotateX(65deg) rotateZ(360deg);
-            }
+            from { transform: rotateX(65deg) rotateZ(0deg); }
+            to { transform: rotateX(65deg) rotateZ(360deg); }
         }
 
         /* --- CARRO PRINCIPAL --- */
@@ -267,17 +305,15 @@
             height: auto;
             object-fit: contain;
             z-index: 2;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+            filter: brightness(0.3);
             animation: girarVertical 4s linear infinite;
+            animation-play-state: paused;
         }
 
         @keyframes girarVertical {
-            from {
-                transform: rotateY(0deg);
-            }
-            to {
-                transform: rotateY(360deg);
-            }
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
         }
 
         /* --- BOTONERA DE CONTROL --- */
@@ -357,7 +393,11 @@
         </section>
 
         <!-- 4. ESCENARIO CENTRAL -->
-        <div class="stage-container">
+        <div class="stage-container" id="stageContainer">
+            <!-- Capas de luces laterales en el escenario -->
+            <div class="stage-light-left"></div>
+            <div class="stage-light-right"></div>
+
             <!-- Fondo para el Modo Oscuro -->
             <img src="/javascript/img_j.s/fondo_png.jpg" alt="Fondo Ciudad Oscuro" class="stage-bg-city stage-bg-dark">
             
@@ -379,7 +419,7 @@
             </button>
             <button class="btn-ctrl btn-forw" id="btnForw">
                 <span>FORW</span>
-                <span class="icon"></span>
+                <span class="icon">▲</span>
             </button>
             <button class="btn-ctrl btn-stop" id="btnStop">
                 <span>STOP</span>
@@ -387,7 +427,7 @@
             </button>
             <button class="btn-ctrl btn-back" id="btnBack">
                 <span>BACK</span>
-                <span class="icon"></span>
+                <span class="icon">▼</span>
             </button>
             <button class="btn-ctrl btn-off" id="btnOff">
                 <span>OFF</span>
@@ -400,6 +440,7 @@
     <!-- JAVASCRIPT -->
     <script>
         const vehicleApp = document.getElementById('vehicleApp');
+        const stageContainer = document.getElementById('stageContainer');
         const btnMode = document.getElementById('btnMode');
         const btnPrev = document.getElementById('btnPrev');
         const btnNext = document.getElementById('btnNext');
@@ -411,6 +452,7 @@
         const btnOn = document.getElementById('btnOn');
         const btnStop = document.getElementById('btnStop');
         const btnOff = document.getElementById('btnOff');
+        const btnForw = document.getElementById('btnForw');
         const btnBack = document.getElementById('btnBack');
 
         const ferrariModels = [
@@ -420,6 +462,7 @@
         ];
 
         let currentIndex = 0;
+        let isPoweredOn = false;
 
         function updateVehicleDisplay() {
             const currentModel = ferrariModels[currentIndex];
@@ -454,31 +497,64 @@
             });
         });
 
-        // Controles sincronizados para el carro y la plataforma
+        // --- LÓGICA DE CONTROL Y CONDICIONES ---
+
         btnOn.addEventListener('click', () => {
-            mainCarDisplay.style.animationPlayState = 'running';
-            stagePlatform.style.animationPlayState = 'running';
+            isPoweredOn = true;
             mainCarDisplay.style.filter = 'brightness(1)';
             stagePlatform.style.filter = 'brightness(1)';
+            stageContainer.classList.add('active-lights');
+            
+            mainCarDisplay.style.animationPlayState = 'running';
+            stagePlatform.style.animationPlayState = 'running';
         });
 
+        // FORW: Enciende luz izquierda (quita la derecha si estuviera activa)
+        btnForw.addEventListener('click', () => {
+            if (!isPoweredOn) {
+                alert("¡El auto está apagado! Presiona ON primero.");
+                return;
+            }
+            stageContainer.classList.remove('show-light-right');
+            stageContainer.classList.add('show-light-left');
+
+            mainCarDisplay.style.transform = 'scale(1.25) rotateY(0deg)';
+            mainCarDisplay.style.animationPlayState = 'running';
+            stagePlatform.style.animationPlayState = 'running';
+        });
+
+        // BACK: Enciende luz derecha (quita la izquierda si estuviera activa)
+        btnBack.addEventListener('click', () => {
+            if (!isPoweredOn) {
+                alert("¡El auto está apagado! Presiona ON primero.");
+                return;
+            }
+            stageContainer.classList.remove('show-light-left');
+            stageContainer.classList.add('show-light-right');
+
+            mainCarDisplay.style.transform = 'scale(0.8) rotateY(0deg)';
+            mainCarDisplay.style.animationPlayState = 'running';
+            stagePlatform.style.animationPlayState = 'running';
+        });
+
+        // STOP: Pausa el movimiento (mantiene el estado de las luces)
         btnStop.addEventListener('click', () => {
+            if (!isPoweredOn) return;
             mainCarDisplay.style.animationPlayState = 'paused';
             stagePlatform.style.animationPlayState = 'paused';
         });
 
+        // OFF: Apaga todo y limpia las luces laterales
         btnOff.addEventListener('click', () => {
+            isPoweredOn = false;
             mainCarDisplay.style.animationPlayState = 'paused';
             stagePlatform.style.animationPlayState = 'paused';
+            mainCarDisplay.style.transform = 'scale(1) rotateY(0deg)';
             mainCarDisplay.style.filter = 'brightness(0.3)';
             stagePlatform.style.filter = 'brightness(0.3)';
+            stageContainer.classList.remove('active-lights', 'show-light-left', 'show-light-right');
         });
 
-        btnBack.addEventListener('click', () => {
-            window.history.back();
-        });
-
-        // Alternar Modo Claro / Oscuro
         btnMode.addEventListener('click', () => {
             vehicleApp.classList.toggle('light');
         });
